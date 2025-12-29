@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+
+// Base styles
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sans antialiased;
+  @apply bg-white text-gray-900;
+  @apply transition-colors duration-300;
+}
+
+.dark body,
+body.dark,
+html.dark body {
+  @apply bg-dark-bg text-gray-100;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+  
+  &:hover {
+    @apply bg-gray-400;
+  }
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-gray-600;
+  
+  &:hover {
+    @apply bg-gray-500;
+  }
+}
+
+// Selection
+::selection {
+  @apply bg-primary-500 text-white;
+}
+
+// Focus styles
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary-500;
+}
+
+// Links
+a {
+  @apply transition-colors duration-200;
+}
+
+// Code blocks
+code {
+  @apply bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.dark code {
+  background-color: #1e293b;
+}
+
+// Section spacing
+.section {
+  @apply py-16 md:py-24;
+}
+
+.container-custom {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+// Glassmorphism effect
+.glass {
+  @apply bg-white/80 backdrop-blur-lg;
+}
+
+.dark .glass {
+  background-color: rgba(30, 41, 59, 0.8);
+}
+
+// Card styles
+.card {
+  @apply bg-white rounded-xl border border-gray-200;
+  @apply transition-all duration-300;
+  
+  &:hover {
+    @apply shadow-lg;
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+}
+
+.dark .card {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+// Badge styles
+.badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  @apply bg-primary-100 text-primary-700;
+}
+
+.dark .badge {
+  background-color: rgba(30, 58, 138, 0.3);
+  @apply text-primary-300;
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-700;
+}
+
+.dark .badge-success {
+  background-color: rgba(20, 83, 45, 0.3);
+  @apply text-green-300;
+}
+
+.badge-warning {
+  @apply bg-yellow-100 text-yellow-700;
+}
+
+.dark .badge-warning {
+  background-color: rgba(113, 63, 18, 0.3);
+  @apply text-yellow-300;
+}
+
+// Button styles
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium;
+  @apply transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-primary {
+  @apply bg-primary-600 text-white hover:bg-primary-700;
+  @apply focus:ring-primary-500;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-900 hover:bg-gray-200;
+  @apply focus:ring-gray-500;
+}
+
+.dark .btn-secondary {
+  background-color: #1e293b;
+  @apply text-gray-100;
+  
+  &:hover {
+    @apply bg-gray-700;
+  }
+}
+
+.btn-outline {
+  @apply border-2 border-primary-600 text-primary-600;
+  @apply hover:bg-primary-600 hover:text-white;
+  @apply focus:ring-primary-500;
+}
+
+.dark .btn-outline {
+  @apply border-primary-400 text-primary-400;
+}
+
+// Tech tag styles
+.tech-tag {
+  @apply inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium;
+  @apply bg-gray-100 text-gray-700;
+  @apply border border-gray-200;
+  @apply transition-all duration-200;
+  
+  &:hover {
+    @apply border-primary-500 text-primary-600;
+  }
+}
+
+.dark .tech-tag {
+  background-color: #1e293b;
+  @apply text-gray-300;
+  border-color: #334155;
+  
+  &:hover {
+    @apply text-primary-400;
+  }
+}
+
+// Skill bar animation
+.skill-bar {
+  @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+  
+  .skill-progress {
+    @apply h-full bg-gradient-to-r from-primary-500 to-primary-600 rounded-full;
+    @apply transition-all duration-1000 ease-out;
+  }
+}
+
+.dark .skill-bar {
+  background-color: #334155;
+}
+
+// Gradient text
+.gradient-text {
+  @apply bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent;
+}
