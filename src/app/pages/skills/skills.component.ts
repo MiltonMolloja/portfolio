@@ -10,21 +10,21 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, FormsModule],
   template: `
-    <section class="min-h-screen bg-[#0f172a] py-20">
+    <section class="min-h-screen bg-gray-50 dark:bg-[#0f172a] py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="text-center mb-12">
           <h1 class="text-4xl md:text-5xl font-bold mb-4">
             <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Habilidades Técnicas</span>
           </h1>
-          <p class="text-gray-400 max-w-2xl mx-auto">
+          <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             {{ allSkills.length }} tecnologías y herramientas en {{ categories.length }} categorías, cultivadas durante más de 6 años de desarrollo de software profesional
           </p>
         </div>
 
         <!-- Stats Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-          <div class="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-xl p-6 border border-slate-700">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+          <div class="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-xl p-6 border border-gray-200 dark:border-slate-700">
             <div class="flex items-center gap-4">
               <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -32,12 +32,12 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
                 </svg>
               </div>
               <div>
-                <p class="text-sm text-gray-400">Nivel Experto</p>
-                <p class="text-2xl font-bold text-white">{{ expertSkills.length }}</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Nivel Experto</p>
+                <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ expertSkills.length }}</p>
               </div>
             </div>
           </div>
-          <div class="bg-gradient-to-br from-purple-500/20 to-purple-600/10 rounded-xl p-6 border border-slate-700">
+          <div class="bg-gradient-to-br from-purple-500/20 to-purple-600/10 rounded-xl p-6 border border-gray-200 dark:border-slate-700">
             <div class="flex items-center gap-4">
               <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,12 +45,12 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
                 </svg>
               </div>
               <div>
-                <p class="text-sm text-gray-400">Certificaciones</p>
-                <p class="text-2xl font-bold text-white">1</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Certificaciones</p>
+                <p class="text-2xl font-bold text-gray-900 dark:text-white">1</p>
               </div>
             </div>
           </div>
-          <div class="bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-xl p-6 border border-slate-700">
+          <div class="bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-xl p-6 border border-gray-200 dark:border-slate-700">
             <div class="flex items-center gap-4">
               <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,8 +58,8 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
                 </svg>
               </div>
               <div>
-                <p class="text-sm text-gray-400">Experiencia</p>
-                <p class="text-2xl font-bold text-white">6+ años</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Experiencia</p>
+                <p class="text-2xl font-bold text-gray-900 dark:text-white">6+ años</p>
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
               type="text" 
               [ngModel]="searchQuery()"
               (ngModelChange)="searchQuery.set($event)"
-              class="w-full pl-10 pr-4 py-2 bg-transparent border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
+              class="w-full pl-10 pr-4 py-2 bg-transparent border border-gray-200 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
               placeholder="Buscar habilidades (ej. TypeScript, Azure, Docker)..."
             />
           </div>
@@ -86,7 +86,7 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
         <div class="flex flex-wrap gap-2 mb-6">
           <button 
             (click)="selectedCategory.set('All')"
-            [class]="selectedCategory() === 'All' ? 'bg-blue-600 text-white shadow-lg' : 'bg-slate-800 text-gray-300 border border-slate-700 hover:bg-slate-700'"
+            [class]="selectedCategory() === 'All' ? 'bg-blue-600 text-white shadow-lg' : 'bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-300 border border-gray-200 dark:border-slate-700 hover:bg-gray-200 dark:hover:bg-slate-700'"
             class="px-4 py-2 rounded-full text-sm font-medium transition-all"
           >
             Todas
@@ -94,41 +94,41 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
           @for (cat of categories; track cat) {
             <button 
               (click)="selectedCategory.set(cat)"
-              [class]="selectedCategory() === cat ? 'bg-blue-600 text-white shadow-lg' : 'bg-slate-800 text-gray-300 border border-slate-700 hover:bg-slate-700'"
+              [class]="selectedCategory() === cat ? 'bg-blue-600 text-white shadow-lg' : 'bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-300 border border-gray-200 dark:border-slate-700 hover:bg-gray-200 dark:hover:bg-slate-700'"
               class="px-4 py-2 rounded-full text-sm font-medium transition-all"
             >
               {{ cat }}
-              <span class="ml-1 px-2 py-0.5 rounded-full text-xs bg-slate-700/50">{{ getCategoryCount(cat) }}</span>
+                <span class="ml-1 px-2 py-0.5 rounded-full text-xs bg-gray-100 dark:bg-slate-700/50">{{ getCategoryCount(cat) }}</span>
             </button>
           }
         </div>
 
         <!-- Results count -->
-        <p class="text-sm text-gray-500 mb-8">Mostrando {{ filteredSkills().length }} de {{ allSkills.length }} habilidades</p>
+        <p class="text-sm text-gray-600 dark:text-gray-500 mb-8">Mostrando {{ filteredSkills().length }} de {{ allSkills.length }} habilidades</p>
 
         <!-- Expert Level -->
         @if (getFilteredByLevel('Expert').length > 0) {
           <div class="mb-12">
             <div class="flex items-center gap-3 mb-4">
-              <h2 class="text-2xl font-bold text-white">Nivel Experto</h2>
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Nivel Experto</h2>
               <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-green-600 to-emerald-600 text-white">{{ getFilteredByLevel('Expert').length }} habilidades</span>
             </div>
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               @for (skill of getFilteredByLevel('Expert'); track skill.name) {
-                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500/50 transition-all group">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-gray-200 dark:border-slate-700 hover:border-blue-500/50 transition-all group">
                   <div class="flex items-start justify-between mb-3">
                     <div class="flex-1">
-                      <h4 class="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
+                      <h4 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-400 transition-colors">
                         @if (skill.icon) {<span class="mr-2">{{ skill.icon }}</span>}{{ skill.name }}
                       </h4>
-                      <span class="inline-block px-2 py-0.5 rounded text-xs text-gray-400 border border-slate-600">{{ skill.category }}</span>
+                      <span class="inline-block px-2 py-0.5 rounded text-xs text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-slate-600">{{ skill.category }}</span>
                     </div>
                     <div class="text-right ml-2">
                       <p class="text-2xl font-bold text-blue-400">{{ skill.years }}</p>
-                      <p class="text-xs text-gray-500">años</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-500">años</p>
                     </div>
                   </div>
-                  <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                     <div class="h-full rounded-full bg-gradient-to-r from-green-600 to-emerald-600" [style.width.%]="getProgressWidth(skill.years)"></div>
                   </div>
                 </div>
@@ -141,25 +141,25 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
         @if (getFilteredByLevel('Advanced').length > 0) {
           <div class="mb-12">
             <div class="flex items-center gap-3 mb-4">
-              <h2 class="text-2xl font-bold text-white">Nivel Avanzado</h2>
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Nivel Avanzado</h2>
               <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 text-white">{{ getFilteredByLevel('Advanced').length }} habilidades</span>
             </div>
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               @for (skill of getFilteredByLevel('Advanced'); track skill.name) {
-                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500/50 transition-all group">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-gray-200 dark:border-slate-700 hover:border-blue-500/50 transition-all group">
                   <div class="flex items-start justify-between mb-3">
                     <div class="flex-1">
-                      <h4 class="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
+                      <h4 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-400 transition-colors">
                         @if (skill.icon) {<span class="mr-2">{{ skill.icon }}</span>}{{ skill.name }}
                       </h4>
-                      <span class="inline-block px-2 py-0.5 rounded text-xs text-gray-400 border border-slate-600">{{ skill.category }}</span>
+                      <span class="inline-block px-2 py-0.5 rounded text-xs text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-slate-600">{{ skill.category }}</span>
                     </div>
                     <div class="text-right ml-2">
                       <p class="text-2xl font-bold text-blue-400">{{ skill.years }}</p>
-                      <p class="text-xs text-gray-500">años</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-500">años</p>
                     </div>
                   </div>
-                  <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                     <div class="h-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600" [style.width.%]="getProgressWidth(skill.years)"></div>
                   </div>
                 </div>
@@ -172,25 +172,25 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
         @if (getFilteredByLevel('Intermediate').length > 0) {
           <div class="mb-12">
             <div class="flex items-center gap-3 mb-4">
-              <h2 class="text-2xl font-bold text-white">Nivel Intermedio</h2>
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Nivel Intermedio</h2>
               <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-yellow-500 to-orange-500 text-white">{{ getFilteredByLevel('Intermediate').length }} habilidades</span>
             </div>
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               @for (skill of getFilteredByLevel('Intermediate'); track skill.name) {
-                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500/50 transition-all group">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-gray-200 dark:border-slate-700 hover:border-blue-500/50 transition-all group">
                   <div class="flex items-start justify-between mb-3">
                     <div class="flex-1">
-                      <h4 class="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
+                      <h4 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-400 transition-colors">
                         @if (skill.icon) {<span class="mr-2">{{ skill.icon }}</span>}{{ skill.name }}
                       </h4>
-                      <span class="inline-block px-2 py-0.5 rounded text-xs text-gray-400 border border-slate-600">{{ skill.category }}</span>
+                      <span class="inline-block px-2 py-0.5 rounded text-xs text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-slate-600">{{ skill.category }}</span>
                     </div>
                     <div class="text-right ml-2">
                       <p class="text-2xl font-bold text-blue-400">{{ skill.years }}</p>
-                      <p class="text-xs text-gray-500">años</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-500">años</p>
                     </div>
                   </div>
-                  <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                     <div class="h-full rounded-full bg-gradient-to-r from-yellow-500 to-orange-500" [style.width.%]="getProgressWidth(skill.years)"></div>
                   </div>
                 </div>
@@ -203,25 +203,25 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
         @if (getFilteredByLevel('Beginner').length > 0) {
           <div class="mb-12">
             <div class="flex items-center gap-3 mb-4">
-              <h2 class="text-2xl font-bold text-white">Nivel Principiante</h2>
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Nivel Principiante</h2>
               <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-gray-500 to-slate-500 text-white">{{ getFilteredByLevel('Beginner').length }} habilidades</span>
             </div>
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               @for (skill of getFilteredByLevel('Beginner'); track skill.name) {
-                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500/50 transition-all group">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-gray-200 dark:border-slate-700 hover:border-blue-500/50 transition-all group">
                   <div class="flex items-start justify-between mb-3">
                     <div class="flex-1">
-                      <h4 class="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
+                      <h4 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-400 transition-colors">
                         @if (skill.icon) {<span class="mr-2">{{ skill.icon }}</span>}{{ skill.name }}
                       </h4>
-                      <span class="inline-block px-2 py-0.5 rounded text-xs text-gray-400 border border-slate-600">{{ skill.category }}</span>
+                      <span class="inline-block px-2 py-0.5 rounded text-xs text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-slate-600">{{ skill.category }}</span>
                     </div>
                     <div class="text-right ml-2">
                       <p class="text-2xl font-bold text-blue-400">{{ skill.years }}</p>
-                      <p class="text-xs text-gray-500">años</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-500">años</p>
                     </div>
                   </div>
-                  <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                     <div class="h-full rounded-full bg-gradient-to-r from-gray-500 to-slate-500" [style.width.%]="getProgressWidth(skill.years)"></div>
                   </div>
                 </div>
@@ -231,36 +231,36 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
         }
 
         <!-- Proficiency Distribution -->
-        <div class="mt-16 bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl p-8 border border-slate-700">
-          <h2 class="text-2xl font-bold text-white text-center mb-8">Distribución de Competencias</h2>
+          <div class="mt-16 bg-gradient-to-br from-gray-100 dark:from-slate-800/50 to-gray-50 dark:to-slate-900/50 rounded-2xl p-8 border border-gray-200 dark:border-slate-700">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">Distribución de Competencias</h2>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div class="text-center">
               <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 flex items-center justify-center">
-                <span class="text-2xl font-bold text-white">{{ expertSkills.length }}</span>
+                <span class="text-2xl font-bold text-gray-900 dark:text-white">{{ expertSkills.length }}</span>
               </div>
-              <p class="text-sm font-semibold text-white">Experto</p>
-              <p class="text-xs text-gray-500">{{ getPercentage(expertSkills.length) }}%</p>
+              <p class="text-sm font-semibold text-gray-900 dark:text-white">Experto</p>
+              <p class="text-xs text-gray-600 dark:text-gray-500">{{ getPercentage(expertSkills.length) }}%</p>
             </div>
             <div class="text-center">
               <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center">
-                <span class="text-2xl font-bold text-white">{{ advancedSkills.length }}</span>
+                <span class="text-2xl font-bold text-gray-900 dark:text-white">{{ advancedSkills.length }}</span>
               </div>
-              <p class="text-sm font-semibold text-white">Avanzado</p>
-              <p class="text-xs text-gray-500">{{ getPercentage(advancedSkills.length) }}%</p>
+              <p class="text-sm font-semibold text-gray-900 dark:text-white">Avanzado</p>
+              <p class="text-xs text-gray-600 dark:text-gray-500">{{ getPercentage(advancedSkills.length) }}%</p>
             </div>
             <div class="text-center">
               <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center">
-                <span class="text-2xl font-bold text-white">{{ intermediateSkills.length }}</span>
+                <span class="text-2xl font-bold text-gray-900 dark:text-white">{{ intermediateSkills.length }}</span>
               </div>
-              <p class="text-sm font-semibold text-white">Intermedio</p>
-              <p class="text-xs text-gray-500">{{ getPercentage(intermediateSkills.length) }}%</p>
+              <p class="text-sm font-semibold text-gray-900 dark:text-white">Intermedio</p>
+              <p class="text-xs text-gray-600 dark:text-gray-500">{{ getPercentage(intermediateSkills.length) }}%</p>
             </div>
             <div class="text-center">
               <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-gradient-to-r from-gray-500 to-slate-500 flex items-center justify-center">
-                <span class="text-2xl font-bold text-white">{{ beginnerSkills.length }}</span>
+                <span class="text-2xl font-bold text-gray-900 dark:text-white">{{ beginnerSkills.length }}</span>
               </div>
-              <p class="text-sm font-semibold text-white">Principiante</p>
-              <p class="text-xs text-gray-500">{{ getPercentage(beginnerSkills.length) }}%</p>
+              <p class="text-sm font-semibold text-gray-900 dark:text-white">Principiante</p>
+              <p class="text-xs text-gray-600 dark:text-gray-500">{{ getPercentage(beginnerSkills.length) }}%</p>
             </div>
           </div>
         </div>
