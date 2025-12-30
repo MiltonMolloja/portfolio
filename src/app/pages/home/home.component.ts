@@ -1,4 +1,4 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PortfolioService } from '../../core/services/portfolio.service';
@@ -461,7 +461,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
     }
   `]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   private portfolioService = inject(PortfolioService);
 
   profile = this.portfolioService.getProfile();
@@ -470,6 +470,10 @@ export class HomeComponent {
   featuredProjects = this.portfolioService.getFeaturedProjects();
   skillCategories = this.portfolioService.getSkillCategories();
   complementarySkills = this.portfolioService.getComplementarySkills();
+
+  ngOnInit(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   typingTexts = [
     'Full Stack Developer Senior',

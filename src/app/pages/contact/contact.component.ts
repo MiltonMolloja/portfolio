@@ -1,4 +1,4 @@
-import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
@@ -235,7 +235,7 @@ import { EMAILJS_CONFIG } from '../../core/config/emailjs.config';
     </section>
   `
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   private readonly portfolioService = inject(PortfolioService);
   
   profile = this.portfolioService.getProfile();
@@ -250,6 +250,10 @@ export class ContactComponent {
   isSubmitting = signal(false);
   submitMessage = signal('');
   submitSuccess = signal(false);
+
+  ngOnInit(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   async onSubmit(): Promise<void> {
     this.isSubmitting.set(true);

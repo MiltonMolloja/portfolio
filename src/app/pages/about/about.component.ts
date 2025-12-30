@@ -1,4 +1,4 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PortfolioService } from '../../core/services/portfolio.service';
@@ -536,7 +536,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
     </section>
   `
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
   private portfolioService = inject(PortfolioService);
 
   profile = this.portfolioService.getProfile();
@@ -545,6 +545,10 @@ export class AboutComponent {
   courses = this.portfolioService.getCourses();
   testimonials = this.portfolioService.getTestimonials();
   interests = this.portfolioService.getInterests();
+
+  ngOnInit(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   // Career stats computed from projects
   careerStats = [

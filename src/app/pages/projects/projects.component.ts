@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, computed, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -240,7 +240,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
     </section>
   `
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
   private portfolioService = inject(PortfolioService);
   
   allProjects = this.portfolioService.getProjects();
@@ -250,6 +250,11 @@ export class ProjectsComponent {
   selectedCategory = signal('all');
   sortOrder = signal('newest');
   showFilters = signal(false);
+
+  ngOnInit(): void {
+    // Scroll to top when component loads
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   filteredProjects = computed(() => {
     let projects = [...this.allProjects];

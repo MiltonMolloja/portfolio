@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, computed, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PortfolioService } from '../../core/services/portfolio.service';
@@ -268,7 +268,7 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
     </section>
   `
 })
-export class SkillsComponent {
+export class SkillsComponent implements OnInit {
   private portfolioService = inject(PortfolioService);
   
   searchQuery = signal('');
@@ -277,6 +277,10 @@ export class SkillsComponent {
   categories = ['Frontend', 'Backend', 'Base de Datos', 'Nube', 'DevOps', 'Testing', 'Arquitectura'];
 
   allSkills: DetailedSkill[] = this.portfolioService.getDetailedSkills();
+
+  ngOnInit(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   get expertSkills() {
     return this.allSkills.filter(s => s.level === 'Expert');
