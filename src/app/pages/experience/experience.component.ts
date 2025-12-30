@@ -9,17 +9,17 @@ import { PortfolioService } from '../../core/services/portfolio.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, RouterLink],
   template: `
-    <section class="min-h-screen bg-[#0a0f1a] py-20">
+    <section class="min-h-screen bg-gray-50 dark:bg-[#0a0f1a] py-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="text-center mb-16">
           <span class="inline-block px-4 py-1.5 bg-blue-500/10 text-blue-400 text-sm font-medium rounded-full border border-blue-500/20 mb-4">
             Trayectoria Profesional
           </span>
-          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Experiencia Laboral
           </h1>
-          <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+          <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
             +6 años construyendo soluciones enterprise para el sector bancario y 
             fintech en Latinoamérica.
           </p>
@@ -28,11 +28,11 @@ import { PortfolioService } from '../../core/services/portfolio.service';
         <!-- Stats Summary -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           @for (stat of careerStats; track stat.label) {
-            <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6 text-center hover:border-blue-500/50 transition-colors">
+            <div class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 p-6 text-center hover:border-blue-500/50 transition-colors">
               <div class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-1">
                 {{ stat.value }}
               </div>
-              <div class="text-sm text-gray-400">{{ stat.label }}</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">{{ stat.label }}</div>
             </div>
           }
         </div>
@@ -45,13 +45,13 @@ import { PortfolioService } from '../../core/services/portfolio.service';
           @for (exp of experiences; track exp.id; let i = $index; let isEven = $even) {
             <div class="relative mb-12 last:mb-0">
               <!-- Timeline Node -->
-              <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 border-4 border-[#0a0f1a] z-10"></div>
+              <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 border-4 border-gray-50 dark:border-[#0a0f1a] z-10"></div>
               
               <!-- Content Card -->
               <div class="ml-8 md:ml-0 md:w-[calc(50%-2rem)]" [class.md:mr-auto]="isEven" [class.md:ml-auto]="!isEven">
-                <div class="bg-[#111827] rounded-xl border border-slate-700/50 overflow-hidden hover:border-blue-500/30 transition-all duration-300 group">
+                <div class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 overflow-hidden hover:border-blue-500/30 transition-all duration-300 group">
                   <!-- Header -->
-                  <div class="p-6 border-b border-slate-700/50">
+                  <div class="p-6 border-b border-gray-200 dark:border-slate-700/50">
                     <!-- Date Badge -->
                     <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 border border-blue-500/30 mb-3">
                       <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -61,7 +61,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                     </div>
                     
                     <!-- Role -->
-                    <h3 class="text-xl font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-blue-400 transition-colors">
                       {{ exp.role }}
                     </h3>
                     
@@ -72,7 +72,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                     
                     <!-- Client -->
                     @if (exp.client) {
-                      <p class="text-gray-500 text-sm flex items-center gap-1.5">
+                        <p class="text-gray-600 dark:text-gray-500 text-sm flex items-center gap-1.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                         </svg>
@@ -84,13 +84,13 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                   <!-- Body -->
                   <div class="p-6">
                     <!-- Description -->
-                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 leading-relaxed">
                       {{ exp.description }}
                     </p>
                     
                     <!-- Key Achievements -->
                     <div class="mb-6">
-                      <h4 class="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+                      <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                         <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
                         </svg>
@@ -105,7 +105,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                               </svg>
                             </div>
                             <div class="flex-1">
-                              <p class="text-gray-300 text-sm">{{ achievement.description }}</p>
+                              <p class="text-gray-900 dark:text-gray-300 text-sm">{{ achievement.description }}</p>
                               <p class="text-emerald-400 text-xs font-medium mt-0.5 flex items-center gap-1">
                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
@@ -120,7 +120,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                     
                     <!-- Tech Stack -->
                     <div class="mb-6">
-                      <h4 class="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+                      <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                         <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
                         </svg>
@@ -128,7 +128,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                       </h4>
                       <div class="flex flex-wrap gap-2">
                         @for (tech of exp.techStack; track tech) {
-                          <span class="px-2.5 py-1 bg-slate-800 text-gray-300 text-xs rounded-md border border-slate-700 hover:border-purple-500/50 transition-colors">
+                          <span class="px-2.5 py-1 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-300 text-xs rounded-md border border-gray-200 dark:border-slate-700 hover:border-purple-500/50 transition-colors">
                             {{ tech }}
                           </span>
                         }
@@ -137,7 +137,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                     
                     <!-- Related Project Link -->
                     @if (getRelatedProject(exp.id)) {
-                      <div class="pt-4 border-t border-slate-700/50">
+                        <div class="pt-4 border-t border-gray-200 dark:border-slate-700/50">
                         <a 
                           [routerLink]="['/projects', getRelatedProject(exp.id)!.id]"
                           class="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors group/link"
@@ -165,10 +165,10 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             <span class="inline-block px-4 py-1.5 bg-purple-500/10 text-purple-400 text-sm font-medium rounded-full border border-purple-500/20 mb-4">
               Proyectos Personales
             </span>
-            <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
               Desarrollo Continuo
             </h2>
-            <p class="text-gray-400 max-w-xl mx-auto">
+            <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
               Proyectos personales que demuestran iniciativa y aprendizaje continuo de nuevas tecnologías.
             </p>
           </div>
@@ -177,32 +177,32 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             @for (project of personalProjects; track project.id) {
               <a 
                 [routerLink]="['/projects', project.id]"
-                class="bg-[#111827] rounded-xl border border-slate-700/50 p-6 hover:border-purple-500/50 transition-all duration-300 group"
+                class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 p-6 hover:border-purple-500/50 transition-all duration-300 group"
               >
                 <div class="flex items-start justify-between mb-4">
                   <div>
-                    <h3 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors mb-1">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-400 transition-colors mb-1">
                       {{ project.title }}
                     </h3>
                     <span class="inline-block px-2 py-0.5 bg-purple-500/20 text-purple-300 text-xs rounded border border-purple-500/30">
                       {{ project.category }}
                     </span>
                   </div>
-                  <svg class="w-5 h-5 text-gray-500 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5 text-gray-600 dark:text-gray-500 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                   </svg>
                 </div>
-                <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
                   {{ project.shortDescription }}
                 </p>
                 <div class="flex flex-wrap gap-1.5">
                   @for (tech of project.techStack.slice(0, 4); track tech) {
-                    <span class="px-2 py-0.5 bg-slate-800 text-gray-400 text-xs rounded">
+                    <span class="px-2 py-0.5 bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-400 text-xs rounded">
                       {{ tech }}
                     </span>
                   }
                   @if (project.techStack.length > 4) {
-                    <span class="px-2 py-0.5 bg-slate-800 text-gray-500 text-xs rounded">
+                    <span class="px-2 py-0.5 bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-500 text-xs rounded">
                       +{{ project.techStack.length - 4 }}
                     </span>
                   }
@@ -218,28 +218,28 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             <span class="inline-block px-4 py-1.5 bg-emerald-500/10 text-emerald-400 text-sm font-medium rounded-full border border-emerald-500/20 mb-4">
               Competencias Técnicas
             </span>
-            <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
               Habilidades Destacadas
             </h2>
-            <p class="text-gray-400 max-w-xl mx-auto">
+            <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
               Tecnologías y herramientas utilizadas a lo largo de mi carrera profesional.
             </p>
           </div>
           
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             @for (category of skillsSummary; track category.name) {
-              <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-5 hover:border-emerald-500/30 transition-colors">
+              <div class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 p-5 hover:border-emerald-500/30 transition-colors">
                 <div class="flex items-center gap-2 mb-3">
                   <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500/20 to-blue-500/20 flex items-center justify-center">
                     <span class="text-lg">{{ category.icon }}</span>
                   </div>
-                  <h3 class="font-semibold text-white text-sm">{{ category.name }}</h3>
+                  <h3 class="font-semibold text-gray-900 dark:text-white text-sm">{{ category.name }}</h3>
                 </div>
                 <div class="space-y-1.5">
                   @for (skill of category.skills.slice(0, 4); track skill) {
                     <div class="flex items-center gap-2">
                       <div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div>
-                      <span class="text-gray-400 text-xs">{{ skill }}</span>
+                      <span class="text-gray-600 dark:text-gray-400 text-xs">{{ skill }}</span>
                     </div>
                   }
                 </div>
@@ -262,10 +262,10 @@ import { PortfolioService } from '../../core/services/portfolio.service';
 
         <!-- CTA Section -->
         <div class="mt-20 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl border border-blue-500/30 p-8 md:p-12 text-center">
-          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
             ¿Interesado en trabajar juntos?
           </h2>
-          <p class="text-gray-300 max-w-xl mx-auto mb-6">
+          <p class="text-gray-900 dark:text-gray-300 max-w-xl mx-auto mb-6">
             Estoy disponible para nuevos proyectos y oportunidades. 
             ¡Hablemos sobre cómo puedo aportar valor a tu equipo!
           </p>
@@ -281,7 +281,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             </a>
             <a 
               routerLink="/projects"
-              class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-transparent text-white font-semibold rounded-lg border border-slate-600 hover:border-purple-500/50 hover:bg-slate-800/50 transition-all"
+              class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-transparent text-gray-900 dark:text-white font-semibold rounded-lg border border-gray-200 dark:border-slate-600 hover:border-purple-500/50 hover:bg-gray-100 dark:hover:bg-slate-800/50 transition-all"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
