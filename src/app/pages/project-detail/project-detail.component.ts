@@ -31,15 +31,15 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                   Proyecto Destacado
                 </span>
               }
-              <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-md border border-emerald-500/30">
+              <span class="px-3 py-1 bg-emerald-50 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-semibold rounded-md border border-emerald-200 dark:border-emerald-500/30">
                 {{ project()!.category }}
               </span>
               @if (project()!.status === 'Completed') {
-                <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-md border border-green-500/30">
+                <span class="px-3 py-1 bg-green-50 dark:bg-green-500/20 text-green-700 dark:text-green-400 text-xs font-semibold rounded-md border border-green-200 dark:border-green-500/30">
                   Completado
                 </span>
               } @else if (project()!.status === 'Production') {
-                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-md border border-blue-500/30">
+                <span class="px-3 py-1 bg-blue-50 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400 text-xs font-semibold rounded-md border border-blue-200 dark:border-blue-500/30">
                   En Producción
                 </span>
               }
@@ -91,7 +91,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
             <!-- Left Column (2/3) -->
             <div class="lg:col-span-2 space-y-6">
               <!-- Overview Card -->
-              <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
+              <div class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 p-6">
                 <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Descripción General</h2>
                 <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                   {{ project()!.fullDescription }}
@@ -99,11 +99,11 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
               </div>
 
               <!-- Technologies Card -->
-              <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
+              <div class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 p-6">
                 <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Tecnologías y Herramientas</h2>
                 <div class="flex flex-wrap gap-2">
                   @for (tech of project()!.techStack; track tech) {
-                    <span class="px-3 py-1.5 bg-gray-100 dark:bg-[#1e293b] text-gray-900 dark:text-gray-300 text-xs rounded-md border border-gray-200 dark:border-slate-600 hover:border-blue-500/50 transition-colors">
+                    <span class="px-3 py-1.5 bg-gray-100 dark:bg-[#1e293b] text-gray-700 dark:text-gray-300 text-xs rounded-md border border-gray-300 dark:border-slate-600 hover:border-blue-500/50 transition-colors">
                       {{ tech }}
                     </span>
                   }
@@ -139,7 +139,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                           </svg>
                         </div>
                       </div>
-                      <p class="text-sm text-blue-400 text-center mt-4 italic">{{ category.images[0].caption }}</p>
+                      <p class="text-sm text-blue-600 dark:text-blue-400 text-center mt-4 italic">{{ category.images[0].caption }}</p>
                     } @else {
                       <!-- Grid of images -->
                       <div class="grid md:grid-cols-2 gap-4">
@@ -188,7 +188,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
 
               <!-- Fallback: Old images array (for backwards compatibility) -->
               @if (!project()!.imageCategories && project()!.images && project()!.images.length > 0) {
-                <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
+                <div class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 p-6">
                   <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Capturas de Pantalla</h2>
                   <div class="grid md:grid-cols-2 gap-4">
                     @for (image of project()!.images; track image; let i = $index) {
@@ -219,12 +219,12 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
 
               <!-- Key Features Card -->
               @if (project()!.highlights && project()!.highlights!.length > 0) {
-                <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
+                <div class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 p-6">
                   <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Características Principales</h2>
                   <ul class="space-y-3">
                     @for (highlight of project()!.highlights!.slice(0, visibleFeatures()); track highlight; let i = $index) {
                       <li class="flex items-start gap-3">
-                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-xs font-semibold flex items-center justify-center">
+                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400 text-xs font-semibold flex items-center justify-center">
                           {{ i + 1 }}
                         </span>
                         <span class="text-gray-600 dark:text-gray-400 text-sm">{{ highlight }}</span>
@@ -235,7 +235,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                     <div class="mt-4 text-center">
                       <button 
                         (click)="toggleFeatures()"
-                        class="inline-flex items-center px-6 py-2.5 bg-slate-800 text-gray-300 text-sm font-medium rounded-lg border border-slate-600 hover:bg-slate-700 transition-colors"
+                        class="inline-flex items-center px-6 py-2.5 bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg border border-gray-300 dark:border-slate-600 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors"
                       >
                         <svg class="w-4 h-4 mr-2" [class.rotate-180]="visibleFeatures() > 5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -249,13 +249,13 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
 
               <!-- Challenges & Solutions Card -->
               @if (project()!.challenges && project()!.challenges!.length > 0) {
-                <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
+                <div class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 p-6">
                   <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Desafíos y Soluciones</h2>
                   <div class="space-y-6">
                     @for (challenge of project()!.challenges!.slice(0, visibleChallenges()); track challenge.title; let i = $index) {
                       <div class="border-l-2 border-blue-500/50 pl-4">
                         <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-3 flex items-start gap-2">
-                          <svg class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg class="w-5 h-5 text-amber-500 dark:text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                           </svg>
                           {{ challenge.title }}
@@ -263,12 +263,12 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                         
                         <div class="space-y-3">
                           <div>
-                            <p class="text-xs font-semibold text-red-400 uppercase tracking-wide mb-1">Desafío:</p>
+                            <p class="text-xs font-semibold text-red-600 dark:text-red-400 uppercase tracking-wide mb-1">Desafío:</p>
                             <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ challenge.challenge }}</p>
                           </div>
                           
                           <div>
-                            <p class="text-xs font-semibold text-emerald-400 uppercase tracking-wide mb-1">Solución:</p>
+                            <p class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide mb-1">Solución:</p>
                             <p class="text-sm text-gray-900 dark:text-gray-300 leading-relaxed">{{ challenge.solution }}</p>
                           </div>
                         </div>
@@ -280,7 +280,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                     <div class="mt-6 text-center">
                       <button 
                         (click)="toggleChallenges()"
-                        class="inline-flex items-center px-6 py-2.5 bg-slate-800 text-gray-300 text-sm font-medium rounded-lg border border-slate-600 hover:bg-slate-700 transition-colors"
+                        class="inline-flex items-center px-6 py-2.5 bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg border border-gray-300 dark:border-slate-600 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors"
                       >
                         <svg class="w-4 h-4 mr-2" [class.rotate-180]="visibleChallenges() > 3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -296,7 +296,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
             <!-- Right Column (1/3) - Sidebar -->
             <div class="space-y-6">
               <!-- Project Info Card -->
-              <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
+              <div class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 p-6">
                 <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Información del Proyecto</h3>
                 <div class="space-y-4">
                   <div class="flex items-start gap-3">
@@ -322,11 +322,11 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
 
               <!-- Project Metrics Card -->
               @if (project()!.metrics && project()!.metrics.length > 0) {
-                <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
+                <div class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 p-6">
                   <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Métricas del Proyecto</h3>
                   <div class="grid grid-cols-2 gap-3">
                     @for (metric of project()!.metrics; track metric.label) {
-                        <div class="bg-gray-100 dark:bg-[#1e293b] rounded-lg p-4 text-center border border-gray-200 dark:border-slate-700/50">
+                        <div class="bg-gray-100 dark:bg-[#1e293b] rounded-lg p-4 text-center border border-gray-300 dark:border-slate-700/50">
                         <p class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-1">
                           {{ metric.value }}
                         </p>
@@ -338,7 +338,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
               }
 
               <!-- External Links Card -->
-              <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
+              <div class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 p-6">
                 <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Enlaces Externos</h3>
                 <div class="space-y-3">
                   @if (project()!.githubUrl) {
@@ -346,7 +346,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                       [href]="project()!.githubUrl" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-blue-400 transition-colors group"
+                      class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
                     >
                       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -362,7 +362,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                       [href]="project()!.demoUrl" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-blue-400 transition-colors group"
+                      class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
                     >
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>

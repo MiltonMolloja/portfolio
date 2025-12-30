@@ -9,10 +9,10 @@ import { Project } from '../../../core/models/portfolio.models';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, RouterLink],
   template: `
-    <article class="card overflow-hidden group">
+    <article class="card overflow-hidden group flex flex-col h-full">
       <!-- Image placeholder or first image -->
       @if (project.images.length > 0) {
-        <div class="relative h-48 bg-gray-100 dark:bg-dark-bg overflow-hidden">
+        <div class="relative h-48 bg-gray-100 dark:bg-dark-bg overflow-hidden flex-shrink-0">
           <img 
             [src]="project.images[0]" 
             [alt]="project.title"
@@ -24,14 +24,14 @@ import { Project } from '../../../core/models/portfolio.models';
           <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </div>
       } @else {
-        <div class="relative h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
+        <div class="relative h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0">
           <svg class="w-16 h-16 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
           </svg>
         </div>
       }
 
-      <div class="p-6">
+      <div class="p-6 flex flex-col flex-1">
         <!-- Status & Category -->
         <div class="flex items-center gap-2 mb-3">
           <span 
@@ -87,7 +87,7 @@ import { Project } from '../../../core/models/portfolio.models';
         }
 
         <!-- Actions -->
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-3 mt-auto">
           <a 
             [routerLink]="['/projects', project.id]"
             class="text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline"

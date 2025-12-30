@@ -10,7 +10,7 @@ export const DETAILED_SKILLS: DetailedSkill[] = [
   { name: 'Entity Framework', category: 'Backend', years: 6, level: 'Expert', icon: '🔗' },
   { name: 'SQL Server', category: 'Base de Datos', years: 6, level: 'Expert', icon: '🗄️' },
   { name: 'RESTful APIs', category: 'Backend', years: 6, level: 'Expert', icon: '🔌' },
-  
+
   // Nivel Avanzado (3-5 años)
   { name: 'Azure', category: 'Nube', years: 3, level: 'Advanced', icon: '☁️' },
   { name: 'AWS', category: 'Nube', years: 3, level: 'Advanced', icon: '🌐' },
@@ -546,7 +546,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
     },
     {
       id: 'icbanking',
-      title: 'ICBanking - Plataforma de Banca Online Enterprise',
+      title: 'Plataforma de Banca Online',
       shortDescription: 'Plataforma enterprise de internet banking con 50+ módulos, procesando +$50M mensuales para múltiples bancos en Latinoamérica.',
       demoUrl: 'https://www.bisa.com/home',
       fullDescription: 'Plataforma enterprise de internet banking desarrollada para InfoCorp, líder en soluciones bancarias en Latinoamérica. Sistema integral que incluye 50+ módulos de funcionalidades bancarias: gestión de cuentas, transferencias nacionales e internacionales (SWIFT), pagos de servicios, tarjetas de crédito, préstamos, inversiones, y módulo completo de Personal Finance Management (PFM). Arquitectura de 4 capas con Angular 10 en frontend y ASP.NET Web API en backend. Comunicación encriptada end-to-end con AES-256 y compresión de datos. Soporte multi-canal: Web responsive, Mobile (PWA), BackOffice administrativo y integración con Chatbots. Sistema de autenticación multi-factor (PIN, SMS OTP, Preguntas de Seguridad, Tarjeta de Coordenadas) y motor de workflows de aprobación multinivel para operaciones empresariales.',
@@ -821,7 +821,8 @@ export const PORTFOLIO_DATA: PortfolioData = {
     {
       name: 'Foundational C# with Microsoft',
       issuer: 'freeCodeCamp',
-      date: 'Febrero 2025'
+      date: 'Febrero 2025',
+      url: 'https://www.freecodecamp.org/certification/MiltonMolloja/foundational-c-sharp-with-microsoft'
     }
   ],
 

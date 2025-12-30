@@ -139,15 +139,15 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                 <!-- Status badge -->
                 <div class="flex flex-wrap gap-2 mb-4">
                   @if (project.status === 'Completed') {
-                    <span class="px-2.5 py-1 bg-green-500/20 text-green-400 text-xs font-medium rounded-full border border-green-500/30">
+                    <span class="px-2.5 py-1 bg-green-50 dark:bg-green-500/20 text-green-700 dark:text-green-400 text-xs font-medium rounded-full border border-green-200 dark:border-green-500/30">
                       Completado
                     </span>
                   } @else if (project.status === 'Production') {
-                    <span class="px-2.5 py-1 bg-blue-500/20 text-blue-400 text-xs font-medium rounded-full border border-blue-500/30">
+                    <span class="px-2.5 py-1 bg-blue-50 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400 text-xs font-medium rounded-full border border-blue-200 dark:border-blue-500/30">
                       En Producción
                     </span>
                   } @else {
-                    <span class="px-2.5 py-1 bg-yellow-500/20 text-yellow-400 text-xs font-medium rounded-full border border-yellow-500/30">
+                    <span class="px-2.5 py-1 bg-yellow-50 dark:bg-yellow-500/20 text-yellow-700 dark:text-yellow-400 text-xs font-medium rounded-full border border-yellow-200 dark:border-yellow-500/30">
                       En Desarrollo
                     </span>
                   }

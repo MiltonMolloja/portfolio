@@ -124,21 +124,21 @@ code {
 }
 
 .badge-success {
-  @apply bg-green-100 text-green-700;
+  @apply bg-green-50 text-green-700 border border-green-200;
 }
 
 .dark .badge-success {
   background-color: rgba(20, 83, 45, 0.3);
-  @apply text-green-300;
+  @apply text-green-300 border-green-500/20;
 }
 
 .badge-warning {
-  @apply bg-yellow-100 text-yellow-700;
+  @apply bg-blue-50 text-blue-700 border border-blue-200;
 }
 
 .dark .badge-warning {
-  background-color: rgba(113, 63, 18, 0.3);
-  @apply text-yellow-300;
+  background-color: rgba(30, 58, 138, 0.3);
+  @apply text-blue-300 border-blue-500/20;
 }
 
 // Button styles

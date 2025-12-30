@@ -89,6 +89,12 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                   </svg>
                 </a>
+                <a href="https://api.whatsapp.com/send?phone=543884576668" target="_blank" rel="noopener noreferrer"
+                   class="p-2.5 bg-white dark:bg-[#0d1424] rounded-lg border border-gray-200 dark:border-slate-700/50 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-purple-500/50 transition-all">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                  </svg>
+                </a>
               </div>
             </div>
 
@@ -102,21 +108,21 @@ import { PortfolioService } from '../../core/services/portfolio.service';
               <!-- Bio paragraphs -->
               <div class="space-y-4 text-gray-900 dark:text-gray-300 leading-relaxed">
                 <p>
-                  Especializado en <span class="text-purple-400 font-semibold">microservicios .NET</span> y 
-                  <span class="text-purple-400 font-semibold">micro-frontends Angular</span> para sistemas 
+                  Especializado en <span class="text-purple-600 dark:text-purple-400 font-semibold">microservicios .NET</span> y 
+                  <span class="text-purple-600 dark:text-purple-400 font-semibold">micro-frontends Angular</span> para sistemas 
                   empresariales escalables del sector bancario y financiero.
                 </p>
                 <p>
                   A lo largo de mi carrera, he tenido el privilegio de trabajar en proyectos de alto impacto 
-                  para instituciones como <span class="text-white font-semibold">Banco Supervielle</span>, 
-                  <span class="text-white font-semibold">InfoCorp</span> y 
-                  <span class="text-white font-semibold">Consultatio SA</span>. Me especializo en la creaci&oacute;n 
+                  para instituciones como <span class="text-gray-900 dark:text-white font-semibold">Banco Supervielle</span>, 
+                  <span class="text-gray-900 dark:text-white font-semibold">InfoCorp</span> y 
+                  <span class="text-gray-900 dark:text-white font-semibold">Consultatio SA</span>. Me especializo en la creaci&oacute;n 
                   de arquitecturas de microservicios, implementaci&oacute;n de sistemas de autenticaci&oacute;n 
                   seguros y desarrollo de plataformas de alta disponibilidad.
                 </p>
                 <p>
-                  Me apasiona el <span class="text-emerald-400 font-semibold">c&oacute;digo limpio</span>, el desarrollo 
-                  basado en pruebas y la <span class="text-emerald-400 font-semibold">mentor&iacute;a de desarrolladores junior</span>. 
+                  Me apasiona el <span class="text-emerald-600 dark:text-emerald-400 font-semibold">c&oacute;digo limpio</span>, el desarrollo 
+                  basado en pruebas y la <span class="text-emerald-600 dark:text-emerald-400 font-semibold">mentor&iacute;a de desarrolladores junior</span>. 
                   Contribuyo activamente al crecimiento de los equipos mediante code reviews, documentaci&oacute;n 
                   t&eacute;cnica y transferencia de conocimientos.
                 </p>
@@ -139,16 +145,16 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                       Buscando
                     </h4>
                     <p class="text-gray-900 dark:text-gray-300 text-sm leading-relaxed">
-                      Posiciones de <span class="text-white font-medium">Senior Software Engineer</span> o 
-                      <span class="text-white font-medium">Tech Lead</span> para crear soluciones escalables 
+                      Posiciones de <span class="text-gray-900 dark:text-white font-medium">Senior Software Engineer</span> o 
+                      <span class="text-gray-900 dark:text-white font-medium">Tech Lead</span> para crear soluciones escalables 
                       y liderar equipos t&eacute;cnicos.
                     </p>
                   </div>
                   
                   <!-- Áreas de enfoque -->
-                  <div class="bg-[#0d1424] rounded-xl p-4 border border-slate-700/50 hover:border-blue-500/30 transition-all">
-                    <h4 class="text-blue-400 font-semibold text-sm mb-2 flex items-center gap-2">
-                      <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
+                  <div class="bg-white dark:bg-[#0d1424] rounded-xl p-4 border border-gray-200 dark:border-slate-700/50 hover:border-blue-500/30 transition-all">
+                    <h4 class="text-blue-600 dark:text-blue-400 font-semibold text-sm mb-2 flex items-center gap-2">
+                      <span class="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full"></span>
                       &Aacute;reas de enfoque
                     </h4>
                     <p class="text-gray-900 dark:text-gray-300 text-sm leading-relaxed">
@@ -158,15 +164,15 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                   </div>
 
                   <!-- Próximos pasos -->
-                  <div class="bg-[#0d1424] rounded-xl p-4 border border-slate-700/50 hover:border-emerald-500/30 transition-all">
-                    <h4 class="text-emerald-400 font-semibold text-sm mb-2 flex items-center gap-2">
-                      <span class="w-2 h-2 bg-emerald-400 rounded-full"></span>
+                  <div class="bg-white dark:bg-[#0d1424] rounded-xl p-4 border border-gray-200 dark:border-slate-700/50 hover:border-emerald-500/30 transition-all">
+                    <h4 class="text-emerald-600 dark:text-emerald-400 font-semibold text-sm mb-2 flex items-center gap-2">
+                      <span class="w-2 h-2 bg-emerald-600 dark:bg-emerald-400 rounded-full"></span>
                       Pr&oacute;ximos pasos
                     </h4>
                     <p class="text-gray-900 dark:text-gray-300 text-sm leading-relaxed">
-                      Profundizar en <span class="text-white font-medium">cloud-native</span>, 
-                      <span class="text-white font-medium">Kubernetes</span> y 
-                      <span class="text-white font-medium">event-driven</span> para alta escala.
+                      Profundizar en <span class="text-gray-900 dark:text-white font-medium">cloud-native</span>, 
+                      <span class="text-gray-900 dark:text-white font-medium">Kubernetes</span> y 
+                      <span class="text-gray-900 dark:text-white font-medium">event-driven</span> para alta escala.
                     </p>
                   </div>
                 </div>
@@ -240,7 +246,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             </div>
 
             <!-- Full Stack Development -->
-            <div class="bg-[#0a0f1a] rounded-2xl p-6 border border-slate-700/50 hover:border-blue-500/30 transition-all">
+            <div class="bg-white dark:bg-[#0a0f1a] rounded-2xl p-6 border border-gray-200 dark:border-slate-700/50 hover:border-blue-500/30 transition-all">
               <div class="flex items-center gap-3 mb-5">
                 <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
                   <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -260,7 +266,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             </div>
 
             <!-- Security & Auth -->
-            <div class="bg-[#0a0f1a] rounded-2xl p-6 border border-slate-700/50 hover:border-emerald-500/30 transition-all">
+            <div class="bg-white dark:bg-[#0a0f1a] rounded-2xl p-6 border border-gray-200 dark:border-slate-700/50 hover:border-emerald-500/30 transition-all">
               <div class="flex items-center gap-3 mb-5">
                 <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center">
                   <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -280,7 +286,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             </div>
 
             <!-- DevOps & Collaboration -->
-            <div class="bg-[#0a0f1a] rounded-2xl p-6 border border-slate-700/50 hover:border-orange-500/30 transition-all">
+            <div class="bg-white dark:bg-[#0a0f1a] rounded-2xl p-6 border border-gray-200 dark:border-slate-700/50 hover:border-orange-500/30 transition-all">
               <div class="flex items-center gap-3 mb-5">
                 <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
                   <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -328,10 +334,10 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                     </div>
                     <div class="pb-6">
                       <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-400 transition-colors">{{ edu.degree }}</h3>
-                      <p class="text-purple-400 text-sm">{{ edu.institution }}</p>
+                      <p class="text-purple-600 dark:text-purple-400 text-sm">{{ edu.institution }}</p>
                       <div class="flex items-center gap-2 mt-2">
                         <span class="text-xs text-gray-600 dark:text-gray-500">{{ edu.startYear }} - {{ edu.endYear }}</span>
-                        <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 text-xs rounded-full">{{ edu.status }}</span>
+                        <span class="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs rounded-full border border-emerald-300 dark:border-emerald-500/30">{{ edu.status }}</span>
                       </div>
                     </div>
                   </div>
@@ -352,20 +358,45 @@ import { PortfolioService } from '../../core/services/portfolio.service';
 
               <div class="space-y-4">
                 @for (cert of certifications; track cert.name) {
-                  <div class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-[#0a0f1a] rounded-xl border border-gray-200 dark:border-slate-700/50 hover:border-emerald-500/50 transition-all">
-                    <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center flex-shrink-0">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  @if (cert.url) {
+                    <a 
+                      [href]="cert.url"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-[#0a0f1a] rounded-xl border border-gray-200 dark:border-slate-700/50 hover:border-emerald-500/50 transition-all group cursor-pointer"
+                    >
+                      <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                      </div>
+                      <div class="flex-1">
+                        <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">{{ cert.name }}</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">{{ cert.issuer }}</p>
+                      </div>
+                      <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-medium rounded-full border border-emerald-300 dark:border-emerald-500/30">
+                        {{ cert.date }}
+                      </span>
+                      <svg class="w-5 h-5 text-gray-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                       </svg>
+                    </a>
+                  } @else {
+                    <div class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-[#0a0f1a] rounded-xl border border-gray-200 dark:border-slate-700/50">
+                      <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                      </div>
+                      <div class="flex-1">
+                        <h3 class="font-semibold text-gray-900 dark:text-white">{{ cert.name }}</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">{{ cert.issuer }}</p>
+                      </div>
+                      <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-medium rounded-full border border-emerald-300 dark:border-emerald-500/30">
+                        {{ cert.date }}
+                      </span>
                     </div>
-                    <div class="flex-1">
-                      <h3 class="font-semibold text-gray-900 dark:text-white">{{ cert.name }}</h3>
-                      <p class="text-sm text-gray-600 dark:text-gray-400">{{ cert.issuer }}</p>
-                    </div>
-                    <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-medium rounded-full">
-                      {{ cert.date }}
-                    </span>
-                  </div>
+                  }
                 }
               </div>
             </div>
@@ -409,7 +440,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                 <div>
                   <div class="flex justify-between items-center mb-2">
                     <span class="text-gray-900 dark:text-gray-300">Espa&ntilde;ol</span>
-                    <span class="text-xs font-medium text-emerald-400 px-2 py-0.5 bg-emerald-500/20 rounded-full">Nativo</span>
+                    <span class="text-xs font-medium text-emerald-700 dark:text-emerald-400 px-2 py-0.5 bg-emerald-100 dark:bg-emerald-500/20 rounded-full border border-emerald-300 dark:border-emerald-500/30">Nativo</span>
                   </div>
                   <div class="h-2 bg-gray-100 dark:bg-[#0a0f1a] rounded-full overflow-hidden">
                     <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full" style="width: 100%"></div>
@@ -418,7 +449,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                 <div>
                   <div class="flex justify-between items-center mb-2">
                     <span class="text-gray-900 dark:text-gray-300">Ingl&eacute;s</span>
-                    <span class="text-xs font-medium text-yellow-400 px-2 py-0.5 bg-yellow-500/20 rounded-full">B&aacute;sico</span>
+                    <span class="text-xs font-medium text-yellow-700 dark:text-yellow-400 px-2 py-0.5 bg-yellow-100 dark:bg-yellow-500/20 rounded-full border border-yellow-300 dark:border-yellow-500/30">B&aacute;sico</span>
                   </div>
                   <div class="h-2 bg-gray-100 dark:bg-[#0a0f1a] rounded-full overflow-hidden">
                     <div class="h-full bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full" style="width: 20%"></div>
@@ -440,7 +471,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
 
               <div class="flex flex-wrap gap-2">
                 @for (interest of interests; track interest) {
-                  <span class="px-3 py-1.5 bg-gray-100 dark:bg-[#0a0f1a] text-gray-900 dark:text-gray-300 text-sm rounded-lg border border-gray-200 dark:border-slate-700/50 hover:border-cyan-500/50 hover:text-cyan-400 transition-all cursor-default">
+                  <span class="px-3 py-1.5 bg-gray-100 dark:bg-[#0a0f1a] text-gray-700 dark:text-gray-300 text-sm rounded-lg border border-gray-300 dark:border-slate-700/50 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all cursor-default">
                     {{ interest }}
                   </span>
                 }

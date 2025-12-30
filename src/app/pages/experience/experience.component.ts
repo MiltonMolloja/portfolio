@@ -13,7 +13,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="text-center mb-16">
-          <span class="inline-block px-4 py-1.5 bg-blue-500/10 text-blue-400 text-sm font-medium rounded-full border border-blue-500/20 mb-4">
+          <span class="inline-block px-4 py-1.5 bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 text-sm font-medium rounded-full border border-blue-200 dark:border-blue-500/20 mb-4">
             Trayectoria Profesional
           </span>
           <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -53,7 +53,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                   <!-- Header -->
                   <div class="p-6 border-b border-gray-200 dark:border-slate-700/50">
                     <!-- Date Badge -->
-                    <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 border border-blue-500/30 mb-3">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-50 dark:bg-gradient-to-r dark:from-blue-500/20 dark:to-purple-500/20 text-purple-700 dark:text-blue-300 border border-purple-200 dark:border-blue-500/30 mb-3">
                       <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                       </svg>
@@ -66,7 +66,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                     </h3>
                     
                     <!-- Company -->
-                    <p class="text-blue-400 font-medium text-sm mb-1">
+                    <p class="text-blue-600 dark:text-blue-400 font-medium text-sm mb-1">
                       {{ exp.company }}
                     </p>
                     
@@ -91,7 +91,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                     <!-- Key Achievements -->
                     <div class="mb-6">
                       <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
                         </svg>
                         Logros Clave
@@ -99,14 +99,14 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                       <div class="space-y-3">
                         @for (achievement of exp.achievements; track achievement.description) {
                           <div class="flex gap-3 group/item">
-                            <div class="flex-shrink-0 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
-                              <svg class="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="flex-shrink-0 w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-500/20 flex items-center justify-center mt-0.5">
+                              <svg class="w-3 h-3 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                               </svg>
                             </div>
                             <div class="flex-1">
                               <p class="text-gray-900 dark:text-gray-300 text-sm">{{ achievement.description }}</p>
-                              <p class="text-emerald-400 text-xs font-medium mt-0.5 flex items-center gap-1">
+                              <p class="text-emerald-600 dark:text-emerald-400 text-xs font-medium mt-0.5 flex items-center gap-1">
                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                                 </svg>
@@ -128,7 +128,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                       </h4>
                       <div class="flex flex-wrap gap-2">
                         @for (tech of exp.techStack; track tech) {
-                          <span class="px-2.5 py-1 bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-300 text-xs rounded-md border border-gray-200 dark:border-slate-700 hover:border-purple-500/50 transition-colors">
+                          <span class="px-2.5 py-1 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 text-xs rounded-md border border-gray-300 dark:border-slate-700 hover:border-purple-500/50 transition-colors">
                             {{ tech }}
                           </span>
                         }
@@ -140,7 +140,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                         <div class="pt-4 border-t border-gray-200 dark:border-slate-700/50">
                         <a 
                           [routerLink]="['/projects', getRelatedProject(exp.id)!.id]"
-                          class="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors group/link"
+                          class="inline-flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors group/link"
                         >
                           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
@@ -162,7 +162,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
         <!-- Personal Projects Section -->
         <div class="mt-20">
           <div class="text-center mb-10">
-            <span class="inline-block px-4 py-1.5 bg-purple-500/10 text-purple-400 text-sm font-medium rounded-full border border-purple-500/20 mb-4">
+            <span class="inline-block px-4 py-1.5 bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 text-sm font-medium rounded-full border border-purple-200 dark:border-purple-500/20 mb-4">
               Proyectos Personales
             </span>
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
@@ -184,7 +184,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                     <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-400 transition-colors mb-1">
                       {{ project.title }}
                     </h3>
-                    <span class="inline-block px-2 py-0.5 bg-purple-500/20 text-purple-300 text-xs rounded border border-purple-500/30">
+                    <span class="inline-block px-2 py-0.5 bg-purple-50 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 text-xs rounded border border-purple-200 dark:border-purple-500/30">
                       {{ project.category }}
                     </span>
                   </div>
@@ -197,12 +197,12 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                 </p>
                 <div class="flex flex-wrap gap-1.5">
                   @for (tech of project.techStack.slice(0, 4); track tech) {
-                    <span class="px-2 py-0.5 bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-400 text-xs rounded">
+                    <span class="px-2 py-0.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-400 text-xs rounded border border-gray-300 dark:border-slate-700">
                       {{ tech }}
                     </span>
                   }
                   @if (project.techStack.length > 4) {
-                    <span class="px-2 py-0.5 bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-500 text-xs rounded">
+                    <span class="px-2 py-0.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-500 text-xs rounded border border-gray-300 dark:border-slate-700">
                       +{{ project.techStack.length - 4 }}
                     </span>
                   }
@@ -215,7 +215,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
         <!-- Skills Summary -->
         <div class="mt-20">
           <div class="text-center mb-10">
-            <span class="inline-block px-4 py-1.5 bg-emerald-500/10 text-emerald-400 text-sm font-medium rounded-full border border-emerald-500/20 mb-4">
+            <span class="inline-block px-4 py-1.5 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-sm font-medium rounded-full border border-emerald-200 dark:border-emerald-500/20 mb-4">
               Competencias Técnicas
             </span>
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">

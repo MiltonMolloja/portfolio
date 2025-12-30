@@ -98,7 +98,7 @@ import { DetailedSkill } from '../../core/models/portfolio.models';
               class="px-4 py-2 rounded-full text-sm font-medium transition-all"
             >
               {{ cat }}
-                <span class="ml-1 px-2 py-0.5 rounded-full text-xs bg-gray-100 dark:bg-slate-700/50">{{ getCategoryCount(cat) }}</span>
+                <span class="ml-1 px-2 py-0.5 rounded-full text-xs bg-white dark:bg-slate-700/50 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-slate-600">{{ getCategoryCount(cat) }}</span>
             </button>
           }
         </div>
