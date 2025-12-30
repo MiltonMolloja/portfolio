@@ -60,7 +60,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
             <!-- Tech Badges -->
             <div class="flex flex-wrap gap-2 mb-8">
               @for (badge of techBadges; track badge.name) {
-                <span class="px-3 py-1.5 rounded-full text-sm text-gray-300 bg-slate-800 border border-slate-700 hover:border-slate-500 transition-colors">
+                <span class="px-3 py-1.5 rounded-full text-sm text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 hover:border-gray-400 dark:hover:border-slate-500 transition-colors">
                   {{ badge.name }}
                 </span>
               }
@@ -134,7 +134,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
               </div>
 
               <!-- Floating Badge - Experience -->
-              <div class="absolute -left-2 top-6 bg-slate-800 rounded-lg shadow-lg p-2 border border-slate-700 animate-float">
+              <div class="absolute -left-2 top-6 bg-white dark:bg-slate-800 rounded-lg shadow-lg p-2 border border-gray-200 dark:border-slate-700 animate-float">
                 <div class="flex items-center gap-1.5">
                   <span class="text-base">🏆</span>
                   <div>
@@ -145,7 +145,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
               </div>
 
               <!-- Floating Badge - Sector -->
-              <div class="absolute -right-2 bottom-12 bg-slate-800 rounded-lg shadow-lg p-2 border border-slate-700 animate-float-delayed">
+              <div class="absolute -right-2 bottom-12 bg-white dark:bg-slate-800 rounded-lg shadow-lg p-2 border border-gray-200 dark:border-slate-700 animate-float-delayed">
                 <div class="flex items-center gap-1.5">
                   <span class="text-base">⭐</span>
                   <div>
@@ -219,7 +219,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
 
           <!-- Frontend -->
-          <div class="bg-[#1e293b]/60 rounded-2xl p-5 border border-[#334155]/50">
+          <div class="bg-white/80 dark:bg-[#1e293b]/60 rounded-2xl p-5 border border-gray-200 dark:border-[#334155]/50 shadow-sm">
             <h3 class="text-lg font-semibold mb-5 flex items-center gap-2">
               <svg class="w-5 h-5 text-purple-400" viewBox="0 0 24 24" fill="currentColor">
                 <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -232,7 +232,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
                     <span class="text-yellow-400">⚡</span>
-                    <span class="text-gray-300 text-sm">Angular</span>
+                    <span class="text-gray-700 dark:text-gray-300 text-sm">Angular</span>
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
@@ -244,7 +244,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
                     <span class="text-blue-500">■</span>
-                    <span class="text-gray-300 text-sm">TypeScript</span>
+                    <span class="text-gray-700 dark:text-gray-300 text-sm">TypeScript</span>
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
@@ -256,7 +256,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
                     <span class="text-yellow-400">✦</span>
-                    <span class="text-gray-300 text-sm">JavaScript</span>
+                    <span class="text-gray-700 dark:text-gray-300 text-sm">JavaScript</span>
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
@@ -268,7 +268,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
           </div>
 
           <!-- Backend -->
-          <div class="bg-[#1e293b]/60 rounded-2xl p-5 border border-[#334155]/50">
+          <div class="bg-white/80 dark:bg-[#1e293b]/60 rounded-2xl p-5 border border-gray-200 dark:border-[#334155]/50 shadow-sm">
             <h3 class="text-lg font-semibold mb-5 flex items-center gap-2">
               <svg class="w-5 h-5 text-orange-400" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
@@ -281,7 +281,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
                     <span class="text-purple-500">◆</span>
-                    <span class="text-gray-300 text-sm">.NET</span>
+                    <span class="text-gray-700 dark:text-gray-300 text-sm">.NET</span>
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
@@ -293,7 +293,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
                     <span class="text-purple-400">■</span>
-                    <span class="text-gray-300 text-sm">C#</span>
+                    <span class="text-gray-700 dark:text-gray-300 text-sm">C#</span>
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
@@ -305,7 +305,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
                     <span class="text-blue-400">◈</span>
-                    <span class="text-gray-300 text-sm">Entity Framework</span>
+                    <span class="text-gray-700 dark:text-gray-300 text-sm">Entity Framework</span>
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
@@ -317,7 +317,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
           </div>
 
           <!-- Base de datos -->
-          <div class="bg-[#1e293b]/60 rounded-2xl p-5 border border-[#334155]/50">
+          <div class="bg-white/80 dark:bg-[#1e293b]/60 rounded-2xl p-5 border border-gray-200 dark:border-[#334155]/50 shadow-sm">
             <h3 class="text-lg font-semibold mb-5 flex items-center gap-2">
               <span class="w-4 h-4 bg-green-500 rounded-sm"></span>
               <span class="text-green-400">Base de datos</span>
@@ -327,7 +327,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
                     <span class="text-red-500">■</span>
-                    <span class="text-gray-300 text-sm">SQL Server</span>
+                    <span class="text-gray-700 dark:text-gray-300 text-sm">SQL Server</span>
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
@@ -339,7 +339,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
                     <span class="text-blue-400">🐘</span>
-                    <span class="text-gray-300 text-sm">PostgreSQL</span>
+                    <span class="text-gray-700 dark:text-gray-300 text-sm">PostgreSQL</span>
                   </div>
                   <span class="text-gray-500 text-xs">2 años</span>
                 </div>
@@ -351,7 +351,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
           </div>
 
           <!-- DevOps -->
-          <div class="bg-[#1e293b]/60 rounded-2xl p-5 border border-[#334155]/50">
+          <div class="bg-white/80 dark:bg-[#1e293b]/60 rounded-2xl p-5 border border-gray-200 dark:border-[#334155]/50 shadow-sm">
             <h3 class="text-lg font-semibold mb-5 flex items-center gap-2">
               <svg class="w-5 h-5 text-red-400" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
@@ -364,7 +364,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
                     <span class="text-blue-400">🐳</span>
-                    <span class="text-gray-300 text-sm">Docker</span>
+                    <span class="text-gray-700 dark:text-gray-300 text-sm">Docker</span>
                   </div>
                   <span class="text-gray-500 text-xs">2 años</span>
                 </div>
@@ -376,7 +376,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
                     <span class="text-blue-500">☁️</span>
-                    <span class="text-gray-300 text-sm">Azure</span>
+                    <span class="text-gray-700 dark:text-gray-300 text-sm">Azure</span>
                   </div>
                   <span class="text-gray-500 text-xs">3 años</span>
                 </div>
@@ -388,7 +388,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center justify-between mb-1.5">
                   <div class="flex items-center gap-2">
                     <span class="text-orange-400">☁️</span>
-                    <span class="text-gray-300 text-sm">AWS</span>
+                    <span class="text-gray-700 dark:text-gray-300 text-sm">AWS</span>
                   </div>
                   <span class="text-gray-500 text-xs">3 años</span>
                 </div>
@@ -407,7 +407,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
           </h3>
           <div class="flex flex-wrap justify-center gap-2">
             @for (skill of complementarySkills; track skill) {
-              <span class="px-3 py-1.5 rounded-full text-sm text-gray-300 bg-[#1e293b]/50 border border-[#334155]/50 hover:border-[#475569] transition-colors">
+              <span class="px-3 py-1.5 rounded-full text-sm text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-[#1e293b]/50 border border-gray-300 dark:border-[#334155]/50 hover:border-gray-400 dark:hover:border-[#475569] transition-colors">
                 {{ skill }}
               </span>
             }
@@ -416,21 +416,21 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
 
         <!-- Stats -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-          <div class="bg-[#1e293b]/50 rounded-2xl p-6 text-center border border-[#334155]/50">
-            <div class="text-3xl font-bold text-white mb-1">14</div>
-            <div class="text-sm text-gray-400">Tecnologías centrales</div>
+          <div class="bg-white dark:bg-[#1e293b]/50 rounded-2xl p-6 text-center border border-gray-200 dark:border-[#334155]/50 shadow-sm">
+            <div class="text-3xl font-bold text-gray-900 dark:text-white mb-1">14</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Tecnologías centrales</div>
           </div>
-          <div class="bg-[#1e293b]/50 rounded-2xl p-6 text-center border border-[#334155]/50">
-            <div class="text-3xl font-bold text-white mb-1">{{ complementarySkills.length }} +</div>
-            <div class="text-sm text-gray-400">Habilidades complementarias</div>
+          <div class="bg-white dark:bg-[#1e293b]/50 rounded-2xl p-6 text-center border border-gray-200 dark:border-[#334155]/50 shadow-sm">
+            <div class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ complementarySkills.length }} +</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Habilidades complementarias</div>
           </div>
-          <div class="bg-[#1e293b]/50 rounded-2xl p-6 text-center border border-[#334155]/50">
-            <div class="text-3xl font-bold text-white mb-1">6+</div>
-            <div class="text-sm text-gray-400">Años de experiencia</div>
+          <div class="bg-white dark:bg-[#1e293b]/50 rounded-2xl p-6 text-center border border-gray-200 dark:border-[#334155]/50 shadow-sm">
+            <div class="text-3xl font-bold text-gray-900 dark:text-white mb-1">6+</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Años de experiencia</div>
           </div>
-          <div class="bg-[#1e293b]/50 rounded-2xl p-6 text-center border border-[#334155]/50">
-            <div class="text-3xl font-bold text-white mb-1">1</div>
-            <div class="text-sm text-gray-400">Certificaciones</div>
+          <div class="bg-white dark:bg-[#1e293b]/50 rounded-2xl p-6 text-center border border-gray-200 dark:border-[#334155]/50 shadow-sm">
+            <div class="text-3xl font-bold text-gray-900 dark:text-white mb-1">1</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Certificaciones</div>
           </div>
         </div>
 
