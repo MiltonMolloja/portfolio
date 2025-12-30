@@ -160,6 +160,111 @@ export const PORTFOLIO_DATA: PortfolioData = {
 
   projects: [
     {
+      id: 'ecommerce-platform',
+      title: 'E-Commerce Enterprise Platform',
+      shortDescription: 'Plataforma E-Commerce empresarial con arquitectura de 7 microservicios escalables en .NET 9.',
+      fullDescription: 'Plataforma E-Commerce empresarial con arquitectura de microservicios escalable en .NET 9 que implementa gestión completa de productos, órdenes, pagos y autenticación avanzada con 2FA. Sistema distribuido con 7 microservicios independientes comunicados a través de API Gateway, procesando transacciones con alta disponibilidad y seguridad enterprise-grade. Frontend modular en Angular 20 con lazy loading y SSR. Rendimiento validado con Lighthouse: SEO perfecto (100), Best Practices excelente (96), CLS de 0 (sin cambios de layout), y tiempo de respuesta del servidor de apenas 60ms. La arquitectura implementa patrones CQRS con MediatR, cache distribuido con Redis, y comunicación asíncrona entre servicios.',
+      category: 'Full Stack',
+      status: 'Completed',
+      featured: true,
+      techStack: [
+        '.NET 9', 'Angular 20', 'SQL Server', 'Redis', 'MediatR',
+        'JWT', 'MercadoPago', 'Entity Framework Core', 'SignalR', 'Docker'
+      ],
+      metrics: [
+        { label: 'Microservicios', value: '7' },
+        { label: 'Performance', value: '69' },
+        { label: 'SEO Score', value: '100' },
+        { label: 'Best Practices', value: '96' },
+        { label: 'Accessibility', value: '87' },
+        { label: 'Estados de Orden', value: '17' }
+      ],
+      images: [
+        'assets/images/projects/ecommerce/App1.png'
+      ],
+      imageCategories: [
+        {
+          title: 'Arquitectura y Diseño de Sistemas',
+          images: [
+            { src: 'assets/images/projects/ecommerce/arch-overview.png', caption: 'Arquitectura principal: 7 microservicios independientes con API Gateway centralizado y bases de datos separadas por servicio' },
+            { src: 'assets/images/projects/ecommerce/arch-microservices.png', caption: 'Comunicación entre servicios: HTTP/REST síncrono con proxies dedicados para Order, Catalog e Identity' },
+            { src: 'assets/images/projects/ecommerce/arch-flow.png', caption: 'Flujo de creación de pedido: Validación de stock → Procesamiento de pago → Notificación al cliente' },
+            { src: 'assets/images/projects/ecommerce/arch-gateway.png', caption: 'API Gateway con autenticación JWT, rate limiting y load balancing' }
+          ]
+        },
+        {
+          title: 'Métricas de Rendimiento',
+          images: [
+            { src: 'assets/images/projects/ecommerce/Test.png', caption: 'Lighthouse Performance: SEO 100, Best Practices 96, Accessibility 87, Server Response 60ms, CLS 0' }
+          ]
+        },
+        {
+          title: 'Capturas de Pantalla de la Aplicación',
+          images: [
+            { src: 'assets/images/projects/ecommerce/App1.png', caption: 'Página principal con carrusel de productos destacados y ofertas del día' },
+            { src: 'assets/images/projects/ecommerce/app2.png', caption: 'Búsqueda avanzada con filtros por categoría, marca, precio y valoraciones' },
+            { src: 'assets/images/projects/ecommerce/app3.png', caption: 'Carrito de compras con cálculo de totales y descuentos en tiempo real' },
+            { src: 'assets/images/projects/ecommerce/app4.png', caption: 'Resumen del pedido con selección de dirección de envío y método de pago' },
+            { src: 'assets/images/projects/ecommerce/app5.png', caption: 'Confirmación de pedido realizado con éxito y resumen de la compra' },
+            { src: 'assets/images/projects/ecommerce/app6.png', caption: 'Resumen de cuenta del usuario con información de perfil y opciones de seguridad' },
+            { src: 'assets/images/projects/ecommerce/app7.png', caption: 'Email de notificación al usuario: nuevo inicio de sesión, cambio de contraseña, confirmación de compra, etc.' },
+            { src: 'assets/images/projects/ecommerce/app8.png', caption: 'Habilitación de autenticación de dos factores (2FA) - Paso 2: Verificación de código de 6 dígitos desde la app de autenticación' }
+          ]
+        }
+      ],
+      demoUrl: 'https://miecommerce.duckdns.org/',
+      githubUrl: 'https://github.com/MiltonMolloja/ECommerceMicroserviceArchitecture',
+      highlights: [
+        'Arquitectura de 7 microservicios independientes: Identity, Catalog, Customer, Order, Payment, Notification y Cart',
+        'Patrón CQRS implementado con MediatR para separación de comandos y consultas',
+        'API Gateway centralizado con Ocelot para routing, rate limiting y load balancing',
+        'Autenticación empresarial JWT con 2FA (TOTP + QR Code) y refresh tokens',
+        'Gestión de sesiones activas con revocación remota y detección de dispositivos',
+        'Cache distribuido con Redis para productos, categorías y carrito de compras',
+        'Integración de pagos con MercadoPago (7 métodos de pago soportados)',
+        'Sistema de notificaciones multi-canal (Email + SMS) con templates dinámicos',
+        'Rate limiting inteligente con bloqueo temporal por IP y usuario',
+        'Frontend Angular 20 con lazy loading, SSR y micro-frontends',
+        'Health checks y monitoreo con endpoints dedicados por servicio',
+        'Logging centralizado con correlation IDs para trazabilidad distribuida',
+        '17 estados de orden con máquina de estados y validaciones de transición',
+        'Full-text search con SQL Server para búsqueda de productos',
+        'Lighthouse Performance: SEO 100, Best Practices 96, Accessibility 87, CLS 0, Server Response 60ms'
+      ],
+      challenges: [
+        {
+          title: 'Renovación Automática de Tokens JWT con Concurrencia',
+          challenge: 'Cuando el access token expiraba, múltiples peticiones HTTP fallaban simultáneamente con error 401. Cada una intentaba renovar el token independientemente, causando condiciones de carrera, loops infinitos y una experiencia de usuario degradada con redirects constantes al login.',
+          solution: 'Implementé un patrón de cola con BehaviorSubject que sincroniza todas las peticiones pendientes. La primera petición que detecta el 401 inicia el refresh, mientras las demás se encolan esperando el nuevo token. Agregué exclusión de URLs de autenticación para evitar loops infinitos y preservación de la URL actual para retornar al usuario después del login. El interceptor maneja ~180 líneas de lógica robusta con logging detallado para debugging.'
+        },
+        {
+          title: 'Integración de Pagos con MercadoPago SDK',
+          challenge: 'La tokenización de tarjetas requería cargar el SDK de MercadoPago dinámicamente, manejar fallos de carga del script externo, y coordinar múltiples pasos asincrónicos: detección de tipo de tarjeta, validación, tokenización y procesamiento. Además, había que manejar órdenes huérfanas cuando el pago fallaba después de crear la orden.',
+          solution: 'Creé MercadoPagoService que carga el SDK lazily con manejo de errores robusto. Implementé detección automática de tipo de tarjeta usando el BIN (primeros 6 dígitos), validación con algoritmo de Luhn, y un flujo de checkout de 3 pasos donde la orden se crea antes del pago pero incluye estados específicos para pagos rechazados. En modo desarrollo, pre-cargo datos de tarjeta de prueba para facilitar testing.'
+        },
+        {
+          title: 'Sincronización de Estado entre Pestañas del Navegador',
+          challenge: 'El carrito de compras y la sesión de usuario debían mantenerse sincronizados entre múltiples pestañas del navegador. Un usuario podía agregar productos en una pestaña y no verlos reflejados en otra, o cerrar sesión en una pestaña y seguir "logueado" en las demás.',
+          solution: 'Utilicé la Storage API del navegador con event listeners para detectar cambios en localStorage desde otras pestañas. CartService escucha eventos "storage" y actualiza su signal interno automáticamente. AuthService implementa un patrón similar con una clave especial "auth_logout_event" que al detectarse limpia la sesión local sin hacer redirect, evitando que todas las pestañas redirijan simultáneamente.'
+        },
+        {
+          title: 'Mapeo Flexible de Respuestas del Backend',
+          challenge: 'Los microservicios del backend retornaban estructuras de datos inconsistentes: algunos usaban "productId", otros "id"; las marcas venían como string o como objeto {name, id}; las imágenes podían estar en "imageUrls", "imageUrl", "mainImage" o "images". Esto causaba errores frecuentes al agregar nuevos endpoints.',
+          solution: 'Diseñé interfaces TypeScript flexibles con propiedades opcionales para todas las variantes posibles. Creé métodos de mapeo centralizados (mapProduct, getMainImage) que implementan una cascada de fallbacks con prioridades claras. Por ejemplo, getMainImage() prueba 6 fuentes diferentes en orden antes de usar el placeholder. Aunque son ~100 líneas de código de mapeo, esto aísla la complejidad y hace el frontend resiliente a cambios del backend.'
+        },
+        {
+          title: 'Búsqueda con Facetas Dinámicas y Sincronización de URL',
+          challenge: 'El sistema de búsqueda debía soportar filtros dinámicos (marcas, categorías, rango de precios, ratings) que se reflejen en la URL para ser compartibles y permitir navegación con back/forward. Los filtros cambiaban según los resultados disponibles, y debían preservar su estado al cambiar de idioma.',
+          solution: 'Implementé UrlSyncService que serializa/deserializa el estado de búsqueda a query params de forma bidireccional. FacetMapperService convierte las facetas del backend a FilterOptions del frontend preservando selecciones previas. Al cambiar idioma, el efecto en ProductSearchService detecta el cambio via languageChanged() signal y dispara un reload manteniendo los filtros actuales. El resultado es una URL como /s?q=laptop&brands=1,2&minPrice=500 totalmente funcional.'
+        },
+        {
+          title: 'Checkout Multi-Paso con Preservación de Estado',
+          challenge: 'El flujo de checkout de 3 pasos (Envío → Pago → Revisión) debía preservar datos de formularios entre navegaciones, validar cada paso antes de avanzar, y recuperar el estado si el usuario salía y volvía. Además, al requerir login durante el checkout, el usuario perdía todo su progreso.',
+          solution: 'CheckoutService mantiene el estado en signals con persistencia selectiva. Los formularios de Angular Reactive Forms se pre-llenan con datos guardados al inicializar. Implementé detección de retorno post-login via query param "returnFromLogin" que automáticamente continúa al paso de revisión. El carrito persiste en localStorage, así que aunque la sesión expire, los productos no se pierden.'
+        }
+      ]
+    },
+    {
       id: 'identity-auth-platform',
       title: 'Identity & Authentication Platform',
       shortDescription: 'Sistema de autenticación empresarial con 2FA TOTP, gestión de sesiones, OAuth callbacks y arquitectura de microservicios.',
@@ -349,111 +454,6 @@ export const PORTFOLIO_DATA: PortfolioData = {
           title: 'Optimización de Bundle con Lazy Loading',
           challenge: 'El portfolio tiene múltiples páginas con contenido rico (imágenes, iconos, componentes complejos). Cargar todo en el bundle inicial degradaba el tiempo de First Contentful Paint y el score de Lighthouse.',
           solution: 'Configuré lazy loading en app.routes.ts usando loadComponent() para cada página. Cada ruta carga su componente dinámicamente solo cuando el usuario navega a ella. El resultado es un bundle inicial de ~375KB que carga en <1s. Las rutas subsecuentes cargan chunks de 3-20KB cada una. PreloadAllModules precarga las rutas en background después del initial load.'
-        }
-      ]
-    },
-    {
-      id: 'ecommerce-platform',
-      title: 'E-Commerce Enterprise Platform',
-      shortDescription: 'Plataforma E-Commerce empresarial con arquitectura de 7 microservicios escalables en .NET 9.',
-      fullDescription: 'Plataforma E-Commerce empresarial con arquitectura de microservicios escalable en .NET 9 que implementa gestión completa de productos, órdenes, pagos y autenticación avanzada con 2FA. Sistema distribuido con 7 microservicios independientes comunicados a través de API Gateway, procesando transacciones con alta disponibilidad y seguridad enterprise-grade. Frontend modular en Angular 20 con lazy loading y SSR. Rendimiento validado con Lighthouse: SEO perfecto (100), Best Practices excelente (96), CLS de 0 (sin cambios de layout), y tiempo de respuesta del servidor de apenas 60ms. La arquitectura implementa patrones CQRS con MediatR, cache distribuido con Redis, y comunicación asíncrona entre servicios.',
-      category: 'Full Stack',
-      status: 'Completed',
-      featured: true,
-      techStack: [
-        '.NET 9', 'Angular 20', 'SQL Server', 'Redis', 'MediatR',
-        'JWT', 'MercadoPago', 'Entity Framework Core', 'SignalR', 'Docker'
-      ],
-      metrics: [
-        { label: 'Microservicios', value: '7' },
-        { label: 'Performance', value: '69' },
-        { label: 'SEO Score', value: '100' },
-        { label: 'Best Practices', value: '96' },
-        { label: 'Accessibility', value: '87' },
-        { label: 'Estados de Orden', value: '17' }
-      ],
-      images: [
-        'assets/images/projects/ecommerce/App1.png'
-      ],
-      imageCategories: [
-        {
-          title: 'Arquitectura y Diseño de Sistemas',
-          images: [
-            { src: 'assets/images/projects/ecommerce/arch-overview.png', caption: 'Arquitectura principal: 7 microservicios independientes con API Gateway centralizado y bases de datos separadas por servicio' },
-            { src: 'assets/images/projects/ecommerce/arch-microservices.png', caption: 'Comunicación entre servicios: HTTP/REST síncrono con proxies dedicados para Order, Catalog e Identity' },
-            { src: 'assets/images/projects/ecommerce/arch-flow.png', caption: 'Flujo de creación de pedido: Validación de stock → Procesamiento de pago → Notificación al cliente' },
-            { src: 'assets/images/projects/ecommerce/arch-gateway.png', caption: 'API Gateway con autenticación JWT, rate limiting y load balancing' }
-          ]
-        },
-        {
-          title: 'Métricas de Rendimiento',
-          images: [
-            { src: 'assets/images/projects/ecommerce/Test.png', caption: 'Lighthouse Performance: SEO 100, Best Practices 96, Accessibility 87, Server Response 60ms, CLS 0' }
-          ]
-        },
-        {
-          title: 'Capturas de Pantalla de la Aplicación',
-          images: [
-            { src: 'assets/images/projects/ecommerce/App1.png', caption: 'Página principal con carrusel de productos destacados y ofertas del día' },
-            { src: 'assets/images/projects/ecommerce/app2.png', caption: 'Búsqueda avanzada con filtros por categoría, marca, precio y valoraciones' },
-            { src: 'assets/images/projects/ecommerce/app3.png', caption: 'Carrito de compras con cálculo de totales y descuentos en tiempo real' },
-            { src: 'assets/images/projects/ecommerce/app4.png', caption: 'Resumen del pedido con selección de dirección de envío y método de pago' },
-            { src: 'assets/images/projects/ecommerce/app5.png', caption: 'Confirmación de pedido realizado con éxito y resumen de la compra' },
-            { src: 'assets/images/projects/ecommerce/app6.png', caption: 'Resumen de cuenta del usuario con información de perfil y opciones de seguridad' },
-            { src: 'assets/images/projects/ecommerce/app7.png', caption: 'Email de notificación al usuario: nuevo inicio de sesión, cambio de contraseña, confirmación de compra, etc.' },
-            { src: 'assets/images/projects/ecommerce/app8.png', caption: 'Habilitación de autenticación de dos factores (2FA) - Paso 2: Verificación de código de 6 dígitos desde la app de autenticación' }
-          ]
-        }
-      ],
-      demoUrl: 'https://miecommerce.duckdns.org/',
-      githubUrl: 'https://github.com/MiltonMolloja',
-      highlights: [
-        'Arquitectura de 7 microservicios independientes: Identity, Catalog, Customer, Order, Payment, Notification y Cart',
-        'Patrón CQRS implementado con MediatR para separación de comandos y consultas',
-        'API Gateway centralizado con Ocelot para routing, rate limiting y load balancing',
-        'Autenticación empresarial JWT con 2FA (TOTP + QR Code) y refresh tokens',
-        'Gestión de sesiones activas con revocación remota y detección de dispositivos',
-        'Cache distribuido con Redis para productos, categorías y carrito de compras',
-        'Integración de pagos con MercadoPago (7 métodos de pago soportados)',
-        'Sistema de notificaciones multi-canal (Email + SMS) con templates dinámicos',
-        'Rate limiting inteligente con bloqueo temporal por IP y usuario',
-        'Frontend Angular 20 con lazy loading, SSR y micro-frontends',
-        'Health checks y monitoreo con endpoints dedicados por servicio',
-        'Logging centralizado con correlation IDs para trazabilidad distribuida',
-        '17 estados de orden con máquina de estados y validaciones de transición',
-        'Full-text search con SQL Server para búsqueda de productos',
-        'Lighthouse Performance: SEO 100, Best Practices 96, Accessibility 87, CLS 0, Server Response 60ms'
-      ],
-      challenges: [
-        {
-          title: 'Renovación Automática de Tokens JWT con Concurrencia',
-          challenge: 'Cuando el access token expiraba, múltiples peticiones HTTP fallaban simultáneamente con error 401. Cada una intentaba renovar el token independientemente, causando condiciones de carrera, loops infinitos y una experiencia de usuario degradada con redirects constantes al login.',
-          solution: 'Implementé un patrón de cola con BehaviorSubject que sincroniza todas las peticiones pendientes. La primera petición que detecta el 401 inicia el refresh, mientras las demás se encolan esperando el nuevo token. Agregué exclusión de URLs de autenticación para evitar loops infinitos y preservación de la URL actual para retornar al usuario después del login. El interceptor maneja ~180 líneas de lógica robusta con logging detallado para debugging.'
-        },
-        {
-          title: 'Integración de Pagos con MercadoPago SDK',
-          challenge: 'La tokenización de tarjetas requería cargar el SDK de MercadoPago dinámicamente, manejar fallos de carga del script externo, y coordinar múltiples pasos asincrónicos: detección de tipo de tarjeta, validación, tokenización y procesamiento. Además, había que manejar órdenes huérfanas cuando el pago fallaba después de crear la orden.',
-          solution: 'Creé MercadoPagoService que carga el SDK lazily con manejo de errores robusto. Implementé detección automática de tipo de tarjeta usando el BIN (primeros 6 dígitos), validación con algoritmo de Luhn, y un flujo de checkout de 3 pasos donde la orden se crea antes del pago pero incluye estados específicos para pagos rechazados. En modo desarrollo, pre-cargo datos de tarjeta de prueba para facilitar testing.'
-        },
-        {
-          title: 'Sincronización de Estado entre Pestañas del Navegador',
-          challenge: 'El carrito de compras y la sesión de usuario debían mantenerse sincronizados entre múltiples pestañas del navegador. Un usuario podía agregar productos en una pestaña y no verlos reflejados en otra, o cerrar sesión en una pestaña y seguir "logueado" en las demás.',
-          solution: 'Utilicé la Storage API del navegador con event listeners para detectar cambios en localStorage desde otras pestañas. CartService escucha eventos "storage" y actualiza su signal interno automáticamente. AuthService implementa un patrón similar con una clave especial "auth_logout_event" que al detectarse limpia la sesión local sin hacer redirect, evitando que todas las pestañas redirijan simultáneamente.'
-        },
-        {
-          title: 'Mapeo Flexible de Respuestas del Backend',
-          challenge: 'Los microservicios del backend retornaban estructuras de datos inconsistentes: algunos usaban "productId", otros "id"; las marcas venían como string o como objeto {name, id}; las imágenes podían estar en "imageUrls", "imageUrl", "mainImage" o "images". Esto causaba errores frecuentes al agregar nuevos endpoints.',
-          solution: 'Diseñé interfaces TypeScript flexibles con propiedades opcionales para todas las variantes posibles. Creé métodos de mapeo centralizados (mapProduct, getMainImage) que implementan una cascada de fallbacks con prioridades claras. Por ejemplo, getMainImage() prueba 6 fuentes diferentes en orden antes de usar el placeholder. Aunque son ~100 líneas de código de mapeo, esto aísla la complejidad y hace el frontend resiliente a cambios del backend.'
-        },
-        {
-          title: 'Búsqueda con Facetas Dinámicas y Sincronización de URL',
-          challenge: 'El sistema de búsqueda debía soportar filtros dinámicos (marcas, categorías, rango de precios, ratings) que se reflejen en la URL para ser compartibles y permitir navegación con back/forward. Los filtros cambiaban según los resultados disponibles, y debían preservar su estado al cambiar de idioma.',
-          solution: 'Implementé UrlSyncService que serializa/deserializa el estado de búsqueda a query params de forma bidireccional. FacetMapperService convierte las facetas del backend a FilterOptions del frontend preservando selecciones previas. Al cambiar idioma, el efecto en ProductSearchService detecta el cambio via languageChanged() signal y dispara un reload manteniendo los filtros actuales. El resultado es una URL como /s?q=laptop&brands=1,2&minPrice=500 totalmente funcional.'
-        },
-        {
-          title: 'Checkout Multi-Paso con Preservación de Estado',
-          challenge: 'El flujo de checkout de 3 pasos (Envío → Pago → Revisión) debía preservar datos de formularios entre navegaciones, validar cada paso antes de avanzar, y recuperar el estado si el usuario salía y volvía. Además, al requerir login durante el checkout, el usuario perdía todo su progreso.',
-          solution: 'CheckoutService mantiene el estado en signals con persistencia selectiva. Los formularios de Angular Reactive Forms se pre-llenan con datos guardados al inicializar. Implementé detección de retorno post-login via query param "returnFromLogin" que automáticamente continúa al paso de revisión. El carrito persiste en localStorage, así que aunque la sesión expire, los productos no se pierden.'
         }
       ]
     },
