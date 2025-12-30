@@ -12,10 +12,10 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
   imports: [CommonModule, RouterLink],
   template: `
     @if (project()) {
-      <section class="min-h-screen bg-[#0a0f1a] py-20">
+      <section class="min-h-screen bg-gray-50 dark:bg-[#0a0f1a] py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <!-- Back Link -->
-          <a routerLink="/projects" class="inline-flex items-center text-gray-400 hover:text-white transition-colors mb-8 group">
+          <a routerLink="/projects" class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-8 group">
             <svg class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
             </svg>
@@ -46,12 +46,12 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
             </div>
             
             <!-- Title -->
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               {{ project()!.title }}
             </h1>
             
             <!-- Description -->
-            <p class="text-lg text-gray-400 max-w-4xl leading-relaxed mb-6">
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-4xl leading-relaxed mb-6">
               {{ project()!.shortDescription }}
             </p>
 
@@ -62,7 +62,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                   [href]="project()!.githubUrl" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="inline-flex items-center px-5 py-2.5 bg-slate-800 text-white text-sm font-medium rounded-lg border border-slate-700 hover:bg-slate-700 transition-colors"
+                  class="inline-flex items-center px-5 py-2.5 bg-white dark:bg-slate-800 text-gray-900 dark:text-white text-sm font-medium rounded-lg border border-gray-200 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors"
                 >
                   <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -92,18 +92,18 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
             <div class="lg:col-span-2 space-y-6">
               <!-- Overview Card -->
               <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
-                <h2 class="text-xl font-bold text-white mb-3">Descripción General</h2>
-                <p class="text-gray-400 text-sm leading-relaxed">
+                <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Descripción General</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                   {{ project()!.fullDescription }}
                 </p>
               </div>
 
               <!-- Technologies Card -->
               <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
-                <h2 class="text-xl font-bold text-white mb-4">Tecnologías y Herramientas</h2>
+                <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Tecnologías y Herramientas</h2>
                 <div class="flex flex-wrap gap-2">
                   @for (tech of project()!.techStack; track tech) {
-                    <span class="px-3 py-1.5 bg-[#1e293b] text-gray-300 text-xs rounded-md border border-slate-600 hover:border-blue-500/50 transition-colors">
+                    <span class="px-3 py-1.5 bg-gray-100 dark:bg-[#1e293b] text-gray-900 dark:text-gray-300 text-xs rounded-md border border-gray-200 dark:border-slate-600 hover:border-blue-500/50 transition-colors">
                       {{ tech }}
                     </span>
                   }
@@ -113,8 +113,8 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
               <!-- Image Categories -->
               @if (project()!.imageCategories && project()!.imageCategories!.length > 0) {
                 @for (category of project()!.imageCategories; track category.title; let catIndex = $index) {
-                  <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
-                    <h2 class="text-xl font-bold text-white mb-4">{{ category.title }}</h2>
+              <div class="bg-white dark:bg-[#111827] rounded-xl border border-gray-200 dark:border-slate-700/50 p-6">
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">{{ category.title }}</h2>
                     
                     <!-- Grid for Architecture (2 cols) or single image for metrics -->
                     @if (category.images.length === 1) {
@@ -145,7 +145,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                       <div class="grid md:grid-cols-2 gap-4">
                         @for (image of getVisibleImages(catIndex, category.images); track image.src; let imgIndex = $index) {
                           <div 
-                            class="group relative cursor-pointer overflow-hidden rounded-lg border border-slate-700 bg-slate-800/30"
+                        class="group relative cursor-pointer overflow-hidden rounded-lg border border-gray-200 dark:border-slate-700 bg-gray-100 dark:bg-slate-800/30"
                             (click)="openImage(image.src)"
                           >
                             <div class="aspect-video">
@@ -163,8 +163,8 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                                 <path d="M11 8v6M8 11h6"></path>
                               </svg>
                             </div>
-                            <div class="p-3 bg-slate-800/70">
-                              <p class="text-xs text-gray-400 text-center line-clamp-2">{{ image.caption }}</p>
+                            <div                             class="p-3 bg-gray-100 dark:bg-slate-800/70">
+                              <p class="text-xs text-gray-600 dark:text-gray-400 text-center line-clamp-2">{{ image.caption }}</p>
                             </div>
                           </div>
                         }
@@ -175,7 +175,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                         <div class="mt-4 text-center">
                           <button 
                             (click)="toggleCategoryImages(catIndex, category.images.length)"
-                            class="inline-flex items-center px-6 py-2.5 bg-slate-800 text-gray-300 text-sm font-medium rounded-lg border border-slate-600 hover:bg-slate-700 transition-colors"
+                            class="inline-flex items-center px-6 py-2.5 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-300 text-sm font-medium rounded-lg border border-gray-200 dark:border-slate-600 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors"
                           >
                             {{ getVisibleCount(catIndex) < category.images.length ? 'Mostrar ' + (category.images.length - getVisibleCount(catIndex)) + ' más' : 'Mostrar menos' }}
                           </button>
@@ -189,7 +189,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
               <!-- Fallback: Old images array (for backwards compatibility) -->
               @if (!project()!.imageCategories && project()!.images && project()!.images.length > 0) {
                 <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
-                  <h2 class="text-xl font-bold text-white mb-4">Capturas de Pantalla</h2>
+                  <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Capturas de Pantalla</h2>
                   <div class="grid md:grid-cols-2 gap-4">
                     @for (image of project()!.images; track image; let i = $index) {
                       <div 
@@ -220,14 +220,14 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
               <!-- Key Features Card -->
               @if (project()!.highlights && project()!.highlights!.length > 0) {
                 <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
-                  <h2 class="text-xl font-bold text-white mb-4">Características Principales</h2>
+                  <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Características Principales</h2>
                   <ul class="space-y-3">
                     @for (highlight of project()!.highlights!.slice(0, visibleFeatures()); track highlight; let i = $index) {
                       <li class="flex items-start gap-3">
                         <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-xs font-semibold flex items-center justify-center">
                           {{ i + 1 }}
                         </span>
-                        <span class="text-gray-400 text-sm">{{ highlight }}</span>
+                        <span class="text-gray-600 dark:text-gray-400 text-sm">{{ highlight }}</span>
                       </li>
                     }
                   </ul>
@@ -250,11 +250,11 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
               <!-- Challenges & Solutions Card -->
               @if (project()!.challenges && project()!.challenges!.length > 0) {
                 <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
-                  <h2 class="text-xl font-bold text-white mb-6">Desafíos y Soluciones</h2>
+                  <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Desafíos y Soluciones</h2>
                   <div class="space-y-6">
                     @for (challenge of project()!.challenges!.slice(0, visibleChallenges()); track challenge.title; let i = $index) {
                       <div class="border-l-2 border-blue-500/50 pl-4">
-                        <h3 class="text-base font-semibold text-white mb-3 flex items-start gap-2">
+                        <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-3 flex items-start gap-2">
                           <svg class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                           </svg>
@@ -264,12 +264,12 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                         <div class="space-y-3">
                           <div>
                             <p class="text-xs font-semibold text-red-400 uppercase tracking-wide mb-1">Desafío:</p>
-                            <p class="text-sm text-gray-400 leading-relaxed">{{ challenge.challenge }}</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ challenge.challenge }}</p>
                           </div>
                           
                           <div>
                             <p class="text-xs font-semibold text-emerald-400 uppercase tracking-wide mb-1">Solución:</p>
-                            <p class="text-sm text-gray-300 leading-relaxed">{{ challenge.solution }}</p>
+                            <p class="text-sm text-gray-900 dark:text-gray-300 leading-relaxed">{{ challenge.solution }}</p>
                           </div>
                         </div>
                       </div>
@@ -297,24 +297,24 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
             <div class="space-y-6">
               <!-- Project Info Card -->
               <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
-                <h3 class="text-lg font-bold text-white mb-4">Información del Proyecto</h3>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Información del Proyecto</h3>
                 <div class="space-y-4">
                   <div class="flex items-start gap-3">
-                    <svg class="w-5 h-5 text-gray-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 text-gray-600 dark:text-gray-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                     </svg>
                     <div>
-                      <p class="text-sm font-medium text-white">Período</p>
-                      <p class="text-sm text-gray-400">{{ project()!.status === 'Production' ? 'En Producción' : 'Proyecto Personal' }}</p>
+                      <p class="text-sm font-medium text-gray-900 dark:text-white">Período</p>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">{{ project()!.status === 'Production' ? 'En Producción' : 'Proyecto Personal' }}</p>
                     </div>
                   </div>
                   <div class="flex items-start gap-3">
-                    <svg class="w-5 h-5 text-gray-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 text-gray-600 dark:text-gray-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                     </svg>
                     <div>
-                      <p class="text-sm font-medium text-white">Rol</p>
-                      <p class="text-sm text-gray-400">Full Stack Developer Senior</p>
+                      <p class="text-sm font-medium text-gray-900 dark:text-white">Rol</p>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">Full Stack Developer Senior</p>
                     </div>
                   </div>
                 </div>
@@ -323,14 +323,14 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
               <!-- Project Metrics Card -->
               @if (project()!.metrics && project()!.metrics.length > 0) {
                 <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
-                  <h3 class="text-lg font-bold text-white mb-4">Métricas del Proyecto</h3>
+                  <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Métricas del Proyecto</h3>
                   <div class="grid grid-cols-2 gap-3">
                     @for (metric of project()!.metrics; track metric.label) {
-                      <div class="bg-[#1e293b] rounded-lg p-4 text-center border border-slate-700/50">
+                        <div class="bg-gray-100 dark:bg-[#1e293b] rounded-lg p-4 text-center border border-gray-200 dark:border-slate-700/50">
                         <p class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-1">
                           {{ metric.value }}
                         </p>
-                        <p class="text-xs text-gray-500">{{ metric.label }}</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-500">{{ metric.label }}</p>
                       </div>
                     }
                   </div>
@@ -339,14 +339,14 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
 
               <!-- External Links Card -->
               <div class="bg-[#111827] rounded-xl border border-slate-700/50 p-6">
-                <h3 class="text-lg font-bold text-white mb-4">Enlaces Externos</h3>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Enlaces Externos</h3>
                 <div class="space-y-3">
                   @if (project()!.githubUrl) {
                     <a 
                       [href]="project()!.githubUrl" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      class="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors group"
+                      class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-blue-400 transition-colors group"
                     >
                       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -362,7 +362,7 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
                       [href]="project()!.demoUrl" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      class="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors group"
+                      class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-blue-400 transition-colors group"
                     >
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
@@ -446,12 +446,12 @@ import { Project, ProjectImage } from '../../core/models/portfolio.models';
         </div>
       }
     } @else {
-      <section class="min-h-screen bg-[#0a0f1a] py-20 flex items-center justify-center">
+      <section class="min-h-screen bg-gray-50 dark:bg-[#0a0f1a] py-20 flex items-center justify-center">
         <div class="text-center">
           <svg class="w-16 h-16 mx-auto text-gray-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
-          <h1 class="text-2xl font-bold text-white mb-4">
+          <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             Proyecto no encontrado
           </h1>
           <a routerLink="/projects" class="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors">
