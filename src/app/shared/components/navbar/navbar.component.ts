@@ -9,14 +9,14 @@ import { PortfolioService } from '../../../core/services/portfolio.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, RouterLink, RouterLinkActive],
   template: `
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-lg border-b border-slate-700/50">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-b border-gray-200 dark:border-slate-700/50">
       <div class="container-custom">
         <div class="flex items-center h-16">
           <!-- Logo -->
           <a routerLink="/" class="flex items-center gap-1 font-semibold text-lg group">
-            <span class="text-pink-500">&lt;</span>
-            <span class="text-white group-hover:text-pink-400 transition-colors">Milton Molloja</span>
-            <span class="text-pink-500">/&gt;</span>
+            <span class="text-pink-500 dark:text-pink-500">&lt;</span>
+            <span class="text-gray-900 dark:text-white group-hover:text-pink-400 transition-colors">Milton Molloja</span>
+            <span class="text-pink-500 dark:text-pink-500">/&gt;</span>
           </a>
 
           <!-- Desktop Navigation + Theme toggle -->
@@ -24,9 +24,9 @@ import { PortfolioService } from '../../../core/services/portfolio.service';
             @for (link of navLinks; track link.path) {
               <a 
                 [routerLink]="link.path" 
-                routerLinkActive="bg-slate-700/50 text-white"
+                routerLinkActive="bg-gray-200 dark:bg-slate-700/50 text-gray-900 dark:text-white"
                 [routerLinkActiveOptions]="{ exact: link.exact }"
-                class="px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-slate-800 transition-all"
+                class="px-4 py-2 rounded-full text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800 transition-all"
               >
                 {{ link.label }}
               </a>
@@ -35,7 +35,7 @@ import { PortfolioService } from '../../../core/services/portfolio.service';
             <!-- Theme Toggle -->
             <button 
               (click)="toggleTheme()"
-              class="p-2 ml-2 rounded-full text-gray-400 hover:text-white hover:bg-slate-800 transition-colors"
+              class="p-2 ml-2 rounded-full text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
               [attr.aria-label]="portfolioService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'"
             >
               @if (portfolioService.isDarkMode()) {
@@ -55,7 +55,7 @@ import { PortfolioService } from '../../../core/services/portfolio.service';
             <!-- Theme Toggle -->
             <button 
               (click)="toggleTheme()"
-              class="p-2 rounded-full text-gray-400 hover:text-white hover:bg-slate-800 transition-colors"
+              class="p-2 rounded-full text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
               [attr.aria-label]="portfolioService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'"
             >
               @if (portfolioService.isDarkMode()) {
@@ -90,15 +90,15 @@ import { PortfolioService } from '../../../core/services/portfolio.service';
 
         <!-- Mobile Navigation -->
         @if (isMobileMenuOpen()) {
-          <div class="md:hidden py-4 border-t border-slate-700/50 animate-slide-down">
+          <div class="md:hidden py-4 border-t border-gray-200 dark:border-slate-700/50 animate-slide-down">
             <div class="flex flex-col gap-1">
               @for (link of navLinks; track link.path) {
                 <a 
                   [routerLink]="link.path"
-                  routerLinkActive="bg-slate-700/50 text-white"
+                  routerLinkActive="bg-gray-200 dark:bg-slate-700/50 text-gray-900 dark:text-white"
                   [routerLinkActiveOptions]="{ exact: link.exact }"
                   (click)="closeMobileMenu()"
-                  class="px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-slate-800 transition-colors"
+                  class="px-4 py-3 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
                 >
                   {{ link.label }}
                 </a>

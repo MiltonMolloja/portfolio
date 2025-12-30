@@ -9,50 +9,50 @@ import { PortfolioService } from '../../../core/services/portfolio.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, RouterLink],
   template: `
-    <footer class="bg-slate-900 border-t border-slate-800">
+    <footer class="bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800">
       <div class="container-custom py-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <!-- Brand -->
           <div class="md:col-span-2">
             <a routerLink="/" class="flex items-center gap-1 font-semibold text-lg mb-4">
-              <span class="text-pink-500">&lt;</span>
-              <span class="text-white">{{ profile.name }}</span>
-              <span class="text-pink-500">/&gt;</span>
+              <span class="text-pink-500 dark:text-pink-500">&lt;</span>
+              <span class="text-gray-900 dark:text-white">{{ profile.name }}</span>
+              <span class="text-pink-500 dark:text-pink-500">/&gt;</span>
             </a>
-            <p class="text-gray-400 text-sm mb-4">
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
               {{ profile.title }}
             </p>
-            <p class="text-gray-500 text-sm">
+            <p class="text-gray-500 dark:text-gray-500 text-sm">
               {{ profile.location }}
             </p>
           </div>
 
           <!-- Quick Links -->
           <div>
-            <h4 class="font-semibold text-white mb-4">Enlaces</h4>
+            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Enlaces</h4>
             <ul class="space-y-2">
               <li>
-                <a routerLink="/projects" class="text-gray-400 hover:text-white text-sm transition-colors">
+                <a routerLink="/projects" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-sm transition-colors">
                   Proyectos
                 </a>
               </li>
               <li>
-                <a routerLink="/skills" class="text-gray-400 hover:text-white text-sm transition-colors">
+                <a routerLink="/skills" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-sm transition-colors">
                   Habilidades
                 </a>
               </li>
               <li>
-                <a routerLink="/experience" class="text-gray-400 hover:text-white text-sm transition-colors">
+                <a routerLink="/experience" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-sm transition-colors">
                   Experiencia
                 </a>
               </li>
               <li>
-                <a routerLink="/about" class="text-gray-400 hover:text-white text-sm transition-colors">
+                <a routerLink="/about" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-sm transition-colors">
                   Sobre mí
                 </a>
               </li>
               <li>
-                <a routerLink="/contact" class="text-gray-400 hover:text-white text-sm transition-colors">
+                <a routerLink="/contact" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-sm transition-colors">
                   Contacto
                 </a>
               </li>
@@ -61,7 +61,7 @@ import { PortfolioService } from '../../../core/services/portfolio.service';
 
           <!-- Connect -->
           <div>
-            <h4 class="font-semibold text-white mb-4">Conectar</h4>
+            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Conectar</h4>
             <div class="flex gap-3">
               <!-- GitHub -->
               <a 
@@ -80,7 +80,7 @@ import { PortfolioService } from '../../../core/services/portfolio.service';
                 [href]="profile.linkedin" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="p-2 rounded-lg bg-slate-800 text-gray-400 hover:text-white hover:bg-slate-700 transition-colors"
+                class="p-2 rounded-lg bg-gray-200 dark:bg-slate-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-300 dark:hover:bg-slate-700 transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ import { PortfolioService } from '../../../core/services/portfolio.service';
               <!-- Email -->
               <a 
                 [href]="'mailto:' + profile.email"
-                class="p-2 rounded-lg bg-slate-800 text-gray-400 hover:text-white hover:bg-slate-700 transition-colors"
+                class="p-2 rounded-lg bg-gray-200 dark:bg-slate-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-300 dark:hover:bg-slate-700 transition-colors"
                 aria-label="Email"
               >
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,8 +102,8 @@ import { PortfolioService } from '../../../core/services/portfolio.service';
         </div>
 
         <!-- Bottom bar -->
-        <div class="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-gray-500 text-sm">
+        <div class="mt-8 pt-8 border-t border-gray-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-gray-600 dark:text-gray-500 text-sm">
             © {{ currentYear }} {{ profile.name }}. Todos los derechos reservados.
           </p>
           <div class="flex items-center gap-2">
