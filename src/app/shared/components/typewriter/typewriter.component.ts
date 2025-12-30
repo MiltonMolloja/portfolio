@@ -1,9 +1,10 @@
-import { Component, Input, OnInit, OnDestroy, signal } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-typewriter',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule],
   template: `
     <span class="typewriter-text">{{ displayText() }}</span><span class="cursor"></span>
@@ -47,7 +48,7 @@ export class TypewriterComponent implements OnInit, OnDestroy {
   private currentTextIndex = 0;
   private currentCharIndex = 0;
   private isDeleting = false;
-  private timeoutId: any;
+  private timeoutId: ReturnType<typeof setTimeout> | null = null;
 
   ngOnInit(): void {
     if (this.texts.length > 0) {

@@ -31,6 +31,14 @@ export interface Skill {
   icon?: string;
 }
 
+export interface DetailedSkill {
+  name: string;
+  category: string;
+  years: number;
+  level: 'Expert' | 'Advanced' | 'Intermediate' | 'Beginner';
+  icon?: string;
+}
+
 export interface SkillCategory {
   name: string;
   icon: string;
@@ -40,6 +48,22 @@ export interface SkillCategory {
 export interface ProjectMetric {
   label: string;
   value: string;
+}
+
+export interface ProjectImage {
+  src: string;
+  caption: string;
+}
+
+export interface ProjectImageCategory {
+  title: string;
+  images: ProjectImage[];
+}
+
+export interface ProjectChallenge {
+  title: string;
+  challenge: string;
+  solution: string;
 }
 
 export interface Project {
@@ -53,9 +77,11 @@ export interface Project {
   techStack: string[];
   metrics: ProjectMetric[];
   images: string[];
+  imageCategories?: ProjectImageCategory[];
   demoUrl?: string;
   githubUrl?: string;
   highlights?: string[];
+  challenges?: ProjectChallenge[];
 }
 
 export interface ExperienceAchievement {
@@ -108,6 +134,7 @@ export interface PortfolioData {
   stats: Stat[];
   techBadges: TechBadge[];
   skillCategories: SkillCategory[];
+  detailedSkills: DetailedSkill[];
   complementarySkills: string[];
   projects: Project[];
   experiences: Experience[];

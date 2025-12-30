@@ -1,18 +1,17 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PortfolioService } from '../../core/services/portfolio.service';
-import { TechBadgeComponent } from '../../shared/components/tech-badge/tech-badge.component';
 import { ProjectCardComponent } from '../../shared/components/project-card/project-card.component';
 import { TypewriterComponent } from '../../shared/components/typewriter/typewriter.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     RouterLink,
-    TechBadgeComponent,
     ProjectCardComponent,
     TypewriterComponent
   ],
@@ -126,6 +125,8 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   <img
                     [src]="profile.photo"
                     [alt]="profile.name"
+                    width="320"
+                    height="320"
                     class="w-full h-full object-cover object-top"
                     onerror="this.src='https://ui-avatars.com/api/?name=Milton+Molloja&size=320&background=3b82f6&color=fff&bold=true'"
                   />

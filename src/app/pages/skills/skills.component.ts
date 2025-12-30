@@ -1,19 +1,13 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PortfolioService } from '../../core/services/portfolio.service';
-
-interface Skill {
-  name: string;
-  category: string;
-  years: number;
-  level: 'Expert' | 'Advanced' | 'Intermediate' | 'Beginner';
-  icon?: string;
-}
+import { DetailedSkill } from '../../core/models/portfolio.models';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, FormsModule],
   template: `
     <section class="min-h-screen bg-[#0f172a] py-20">
@@ -282,68 +276,7 @@ export class SkillsComponent {
 
   categories = ['Frontend', 'Backend', 'Base de Datos', 'Nube', 'DevOps', 'Testing', 'Arquitectura'];
 
-  allSkills: Skill[] = [
-    // Nivel Experto (6 años)
-    { name: 'Angular', category: 'Frontend', years: 6, level: 'Expert', icon: '🅰️' },
-    { name: 'TypeScript', category: 'Frontend', years: 6, level: 'Expert', icon: '📘' },
-    { name: 'JavaScript', category: 'Frontend', years: 6, level: 'Expert', icon: '💛' },
-    { name: '.NET', category: 'Backend', years: 6, level: 'Expert', icon: '🟣' },
-    { name: 'C#', category: 'Backend', years: 6, level: 'Expert', icon: '💜' },
-    { name: 'Entity Framework', category: 'Backend', years: 6, level: 'Expert', icon: '🔗' },
-    { name: 'SQL Server', category: 'Base de Datos', years: 6, level: 'Expert', icon: '🗄️' },
-    { name: 'RESTful APIs', category: 'Backend', years: 6, level: 'Expert', icon: '🔌' },
-    
-    // Nivel Avanzado (3-5 años)
-    { name: 'Azure', category: 'Nube', years: 3, level: 'Advanced', icon: '☁️' },
-    { name: 'AWS', category: 'Nube', years: 3, level: 'Advanced', icon: '🌐' },
-    { name: 'RxJS', category: 'Frontend', years: 5, level: 'Advanced', icon: '🔄' },
-    { name: 'HTML5', category: 'Frontend', years: 6, level: 'Advanced', icon: '🌐' },
-    { name: 'CSS/SCSS', category: 'Frontend', years: 6, level: 'Advanced', icon: '🎨' },
-    { name: 'Bootstrap', category: 'Frontend', years: 5, level: 'Advanced', icon: '🅱️' },
-    { name: 'Angular Material', category: 'Frontend', years: 4, level: 'Advanced', icon: '🎯' },
-    { name: 'PrimeNG', category: 'Frontend', years: 4, level: 'Advanced', icon: '⭐' },
-    { name: 'Azure DevOps', category: 'DevOps', years: 3, level: 'Advanced', icon: '🔵' },
-    { name: 'Git/GitFlow', category: 'DevOps', years: 6, level: 'Advanced', icon: '🌿' },
-    { name: 'CI/CD', category: 'DevOps', years: 3, level: 'Advanced', icon: '🔁' },
-    { name: 'Microservicios', category: 'Arquitectura', years: 4, level: 'Advanced', icon: '🧩' },
-    { name: 'CQRS', category: 'Arquitectura', years: 3, level: 'Advanced', icon: '📊' },
-    { name: 'DDD', category: 'Arquitectura', years: 3, level: 'Advanced', icon: '🏛️' },
-    { name: 'Clean Architecture', category: 'Arquitectura', years: 3, level: 'Advanced', icon: '🏗️' },
-    { name: 'xUnit', category: 'Testing', years: 4, level: 'Advanced', icon: '✅' },
-    { name: 'NUnit', category: 'Testing', years: 4, level: 'Advanced', icon: '🧪' },
-    { name: 'Jasmine', category: 'Testing', years: 4, level: 'Advanced', icon: '🌸' },
-    { name: 'Karma', category: 'Testing', years: 4, level: 'Advanced', icon: '☸️' },
-    { name: 'JWT Authentication', category: 'Backend', years: 5, level: 'Advanced', icon: '🔐' },
-    { name: 'OAuth 2.0', category: 'Backend', years: 3, level: 'Advanced', icon: '🔑' },
-    { name: 'Dapper', category: 'Backend', years: 3, level: 'Advanced', icon: '⚡' },
-    { name: 'AutoMapper', category: 'Backend', years: 4, level: 'Advanced', icon: '🗺️' },
-    { name: 'FluentValidation', category: 'Backend', years: 4, level: 'Advanced', icon: '✔️' },
-    { name: 'Qualtrics', category: 'Frontend', years: 2, level: 'Advanced', icon: '📊' },
-
-    // Nivel Intermedio (2 años)
-    { name: 'Docker', category: 'DevOps', years: 2, level: 'Intermediate', icon: '🐳' },
-    { name: 'PostgreSQL', category: 'Base de Datos', years: 2, level: 'Intermediate', icon: '🐘' },
-    { name: 'Redis', category: 'Base de Datos', years: 2, level: 'Intermediate', icon: '🔴' },
-    { name: 'MongoDB', category: 'Base de Datos', years: 2, level: 'Intermediate', icon: '🍃' },
-    { name: 'RabbitMQ', category: 'Backend', years: 2, level: 'Intermediate', icon: '🐰' },
-    { name: 'Azure Service Bus', category: 'Nube', years: 2, level: 'Intermediate', icon: '🚌' },
-    { name: 'Kafka', category: 'Backend', years: 2, level: 'Intermediate', icon: '📨' },
-    { name: 'GitHub Actions', category: 'DevOps', years: 2, level: 'Intermediate', icon: '🐙' },
-    { name: 'Jenkins', category: 'DevOps', years: 2, level: 'Intermediate', icon: '🤵' },
-    { name: 'SonarQube', category: 'Testing', years: 2, level: 'Advanced', icon: '📡' },
-    { name: 'Cypress', category: 'Testing', years: 2, level: 'Intermediate', icon: '🌲' },
-    { name: 'Application Insights', category: 'Nube', years: 2, level: 'Intermediate', icon: '📈' },
-    { name: 'Serilog', category: 'Backend', years: 2, level: 'Intermediate', icon: '📝' },
-    { name: 'Principios SOLID', category: 'Arquitectura', years: 4, level: 'Intermediate', icon: '💎' },
-    { name: 'Unit of Work', category: 'Arquitectura', years: 3, level: 'Intermediate', icon: '📦' },
-    { name: 'Repository Pattern', category: 'Arquitectura', years: 4, level: 'Intermediate', icon: '🗃️' },
-    { name: 'Scrum', category: 'DevOps', years: 4, level: 'Intermediate', icon: '🏃' },
-    { name: 'Agile', category: 'DevOps', years: 4, level: 'Intermediate', icon: '🔄' },
-
-    // Nivel Principiante (1 año)
-    { name: 'Kubernetes', category: 'DevOps', years: 1, level: 'Beginner', icon: '⚓' },
-    { name: 'ELK Stack', category: 'Nube', years: 1, level: 'Beginner', icon: '📊' },
-  ];
+  allSkills: DetailedSkill[] = this.portfolioService.getDetailedSkills();
 
   get expertSkills() {
     return this.allSkills.filter(s => s.level === 'Expert');

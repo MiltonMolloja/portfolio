@@ -1,11 +1,14 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import emailjs from '@emailjs/browser';
 import { PortfolioService } from '../../core/services/portfolio.service';
+import { EMAILJS_CONFIG } from '../../core/config/emailjs.config';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, FormsModule],
   template: `
     <section class="section">
@@ -13,11 +16,11 @@ import { PortfolioService } from '../../core/services/portfolio.service';
         <!-- Header -->
         <div class="text-center mb-12">
           <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Get In Touch
+            Contacto
           </h1>
           <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            I'm currently open to new opportunities. Whether you have a question 
-            or just want to say hi, I'll do my best to get back to you!
+            Actualmente estoy abierto a nuevas oportunidades. Si tienes alguna pregunta 
+            o simplemente quieres saludar, har&eacute; lo posible por responderte.
           </p>
         </div>
 
@@ -25,7 +28,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
           <!-- Contact Info -->
           <div>
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              Contact Information
+              Informaci&oacute;n de Contacto
             </h2>
             
             <div class="space-y-6 mb-8">
@@ -40,7 +43,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-500 dark:text-gray-400">Email</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Correo electr&oacute;nico</p>
                   <p class="font-medium text-gray-900 dark:text-white">{{ profile.email }}</p>
                 </div>
               </a>
@@ -56,7 +59,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-500 dark:text-gray-400">Phone</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Tel&eacute;fono</p>
                   <p class="font-medium text-gray-900 dark:text-white">{{ profile.phone }}</p>
                 </div>
               </a>
@@ -106,7 +109,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-500 dark:text-gray-400">Location</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Ubicaci&oacute;n</p>
                   <p class="font-medium text-gray-900 dark:text-white">{{ profile.location }}</p>
                 </div>
               </div>
@@ -115,21 +118,21 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             <!-- Availability Badge -->
             <div class="inline-flex items-center px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
               <span class="w-2 h-2 mr-2 bg-green-500 rounded-full animate-pulse"></span>
-              Open to new opportunities · Immediate availability
+              Abierto a nuevas oportunidades &middot; Disponibilidad inmediata
             </div>
           </div>
 
           <!-- Contact Form -->
           <div class="card p-8">
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              Send a Message
+              Enviar un Mensaje
             </h2>
             
             <form (ngSubmit)="onSubmit()" class="space-y-6">
               <!-- Name -->
               <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Name
+                  Nombre
                 </label>
                 <input 
                   type="text" 
@@ -138,14 +141,14 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                   [(ngModel)]="formData.name"
                   required
                   class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-dark-border bg-white dark:bg-dark-bg text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                  placeholder="Your name"
+                  placeholder="Tu nombre"
                 />
               </div>
 
               <!-- Email -->
               <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Email
+                  Correo electr&oacute;nico
                 </label>
                 <input 
                   type="email" 
@@ -154,14 +157,14 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                   [(ngModel)]="formData.email"
                   required
                   class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-dark-border bg-white dark:bg-dark-bg text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                  placeholder="your.email@example.com"
+                  placeholder="tu.email@ejemplo.com"
                 />
               </div>
 
               <!-- Subject -->
               <div>
                 <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Subject
+                  Asunto
                 </label>
                 <input 
                   type="text" 
@@ -170,14 +173,14 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                   [(ngModel)]="formData.subject"
                   required
                   class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-dark-border bg-white dark:bg-dark-bg text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                  placeholder="What's this about?"
+                  placeholder="&iquest;De qu&eacute; se trata?"
                 />
               </div>
 
               <!-- Message -->
               <div>
                 <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Message
+                  Mensaje
                 </label>
                 <textarea 
                   id="message" 
@@ -186,7 +189,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                   required
                   rows="5"
                   class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-dark-border bg-white dark:bg-dark-bg text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
-                  placeholder="Your message..."
+                  placeholder="Tu mensaje..."
                 ></textarea>
               </div>
 
@@ -201,9 +204,9 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
-                  Sending...
+                  Enviando...
                 } @else {
-                  Send Message
+                  Enviar Mensaje
                   <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
                   </svg>
@@ -233,7 +236,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
   `
 })
 export class ContactComponent {
-  private portfolioService = inject(PortfolioService);
+  private readonly portfolioService = inject(PortfolioService);
   
   profile = this.portfolioService.getProfile();
   
@@ -248,18 +251,27 @@ export class ContactComponent {
   submitMessage = signal('');
   submitSuccess = signal(false);
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     this.isSubmitting.set(true);
     this.submitMessage.set('');
     
-    // Simulate form submission
-    setTimeout(() => {
-      // In a real app, you would send this to a backend
-      console.log('Form submitted:', this.formData);
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        {
+          from_name: this.formData.name,
+          from_email: this.formData.email,
+          user_subject: this.formData.subject,
+          message: this.formData.message,
+          to_email: 'milton_molloja@hotmail.com'
+        },
+        EMAILJS_CONFIG.publicKey
+      );
       
-      this.isSubmitting.set(false);
       this.submitSuccess.set(true);
-      this.submitMessage.set('Thank you for your message! I\'ll get back to you soon.');
+      this.submitMessage.set('¡Gracias por tu mensaje! Te responderé pronto.');
       
       // Reset form
       this.formData = {
@@ -268,6 +280,35 @@ export class ContactComponent {
         subject: '',
         message: ''
       };
-    }, 1500);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      
+      // Fallback: abrir cliente de correo
+      this.submitSuccess.set(false);
+      this.submitMessage.set('Hubo un error al enviar el mensaje. Abriendo tu cliente de correo...');
+      
+      setTimeout(() => {
+        this.openMailtoFallback();
+      }, 1500);
+    } finally {
+      this.isSubmitting.set(false);
+    }
+  }
+
+  private openMailtoFallback(): void {
+    const emailBody = `
+Nombre: ${this.formData.name}
+Correo electrónico: ${this.formData.email}
+Asunto: ${this.formData.subject}
+
+Mensaje:
+${this.formData.message}
+    `.trim();
+
+    const mailtoLink = `mailto:milton_molloja@hotmail.com?subject=${encodeURIComponent('Mensaje de Portfolio - ' + this.formData.subject)}&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = mailtoLink;
+    
+    this.submitSuccess.set(true);
+    this.submitMessage.set('Se ha abierto tu cliente de correo. Por favor envía el mensaje desde ahí.');
   }
 }

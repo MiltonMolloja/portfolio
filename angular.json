@@ -44,7 +44,7 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-"inlineStyleLanguage": "scss",
+            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
@@ -118,11 +118,23 @@
               "src/styles.scss"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "da2e530d-4a57-4a88-93ab-9fca475ae8dc"
+    "analytics": "da2e530d-4a57-4a88-93ab-9fca475ae8dc",
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }

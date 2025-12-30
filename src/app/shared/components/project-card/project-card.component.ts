@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Project } from '../../../core/models/portfolio.models';
@@ -6,6 +6,7 @@ import { Project } from '../../../core/models/portfolio.models';
 @Component({
   selector: 'app-project-card',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, RouterLink],
   template: `
     <article class="card overflow-hidden group">
@@ -15,6 +16,8 @@ import { Project } from '../../../core/models/portfolio.models';
           <img 
             [src]="project.images[0]" 
             [alt]="project.title"
+            width="400"
+            height="192"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
@@ -120,15 +123,7 @@ import { Project } from '../../../core/models/portfolio.models';
         </div>
       </div>
     </article>
-  `,
-  styles: [`
-    .line-clamp-2 {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-  `]
+  `
 })
 export class ProjectCardComponent {
   @Input({ required: true }) project!: Project;

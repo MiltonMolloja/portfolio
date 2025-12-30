@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Architecture Diagrams</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            color: white;
+            padding: 40px;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            background: linear-gradient(90deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #a5b4fc;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #334155;
+        }
+        .diagram-container {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid #334155;
+        }
+        .diagram-title {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+        .instructions {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-left: 4px solid #818cf8;
+        }
+        .instructions h3 {
+            color: #818cf8;
+            margin-top: 0;
+        }
+        .instructions ol {
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <h1>E-Commerce Microservices Architecture</h1>
+    
+    <div class="instructions">
+        <h3>Instrucciones para capturar las imagenes:</h3>
+        <ol>
+            <li>Abre este archivo en Chrome o Edge</li>
+            <li>Usa la herramienta de recorte de Windows (Win + Shift + S)</li>
+            <li>Captura cada diagrama por separado</li>
+            <li>Guarda las imagenes en: <code>C:\Source\portfolio\portfolio\src\assets\images\projects\ecommerce\</code></li>
+            <li>Nombres sugeridos: arch-overview.png, arch-microservices.png, arch-flow.png, arch-cqrs.png, arch-gateway.png</li>
+        </ol>
+    </div>
+
+    <!-- Diagram 1: Overview -->
+    <h2>1. Arquitectura General - Vista de Alto Nivel</h2>
+    <div class="diagram-container">
+        <div class="mermaid">
+graph TB
+    subgraph "Frontend Layer"
+        WEB["Web Client<br/>Angular 20<br/>:60001"]
+        AUTH["Authentication UI<br/>:60000"]
+    end
+    
+    subgraph "API Gateway Layer"
+        GW["API Gateway<br/>Ocelot<br/>:45000"]
+    end
+    
+    subgraph "Microservices Layer"
+        ID["Identity Service<br/>.NET 9<br/>:10000"]
+        CAT["Catalog Service<br/>.NET 9<br/>:20000"]
+        CUST["Customer Service<br/>.NET 9<br/>:30000"]
+        ORD["Order Service<br/>.NET 9<br/>:40000"]
+        PAY["Payment Service<br/>MercadoPago<br/>:50000"]
+        NOT["Notification Service<br/>Email/SMS<br/>:55000"]
+        CART["Cart Service<br/>Redis<br/>:35000"]
+    end
+    
+    subgraph "Data Layer"
+        SQLID[("Identity DB<br/>SQL Server")]
+        SQLCAT[("Catalog DB<br/>SQL Server")]
+        SQLCUST[("Customer DB<br/>SQL Server")]
+        SQLORD[("Order DB<br/>SQL Server")]
+        REDIS[("Redis Cache")]
+    end
+    
+    WEB --> GW
+    AUTH --> GW
+    
+    GW --> ID
+    GW --> CAT
+    GW --> CUST
+    GW --> ORD
+    GW --> PAY
+    GW --> NOT
+    GW --> CART
+    
+    ID --> SQLID
+    CAT --> SQLCAT
+    CUST --> SQLCUST
+    ORD --> SQLORD
+    CART --> REDIS
+    CAT --> REDIS
+
+    style GW fill:#f59e0b,stroke:#d97706,color:#000
+    style WEB fill:#3b82f6,stroke:#2563eb,color:#fff
+    style AUTH fill:#3b82f6,stroke:#2563eb,color:#fff
+    style ID fill:#10b981,stroke:#059669,color:#fff
+    style CAT fill:#10b981,stroke:#059669,color:#fff
+    style CUST fill:#10b981,stroke:#059669,color:#fff
+    style ORD fill:#10b981,stroke:#059669,color:#fff
+    style PAY fill:#8b5cf6,stroke:#7c3aed,color:#fff
+    style NOT fill:#ec4899,stroke:#db2777,color:#fff
+    style CART fill:#ef4444,stroke:#dc2626,color:#fff
+        </div>
+        <p class="diagram-title">Arquitectura de 7 microservicios con API Gateway centralizado y bases de datos separadas por servicio</p>
+    </div>
+
+    <!-- Diagram 2: Microservices Detail -->
+    <h2>2. Detalle de Microservicios y Comunicacion</h2>
+    <div class="diagram-container">
+        <div class="mermaid">
+graph LR
+    subgraph "Identity Microservice"
+        IA["Identity.Api"]
+        ID["Identity.Domain"]
+        IP["Identity.Persistence"]
+        IQ["Identity.Queries"]
+        IE["Identity.EventHandlers"]
+    end
+    
+    subgraph "Catalog Microservice"
+        CA["Catalog.Api"]
+        CD["Catalog.Domain"]
+        CP["Catalog.Persistence"]
+        CQ["Catalog.Queries"]
+        CE["Catalog.EventHandlers"]
+    end
+    
+    subgraph "Order Microservice"
+        OA["Order.Api"]
+        OD["Order.Domain"]
+        OP["Order.Persistence"]
+        OQ["Order.Queries"]
+        OE["Order.EventHandlers"]
+        OPR["Order.Proxies"]
+    end
+    
+    OPR -->|"HTTP GET/PUT"| CA
+    OPR -->|"HTTP GET"| IA
+    
+    style IA fill:#10b981,color:#fff
+    style CA fill:#3b82f6,color:#fff
+    style OA fill:#f59e0b,color:#000
+    style OPR fill:#ef4444,color:#fff
+        </div>
+        <p class="diagram-title">Comunicacion sincrona entre microservicios via HTTP/REST con proxies dedicados</p>
+    </div>
+
+    <!-- Diagram 3: Order Flow -->
+    <h2>3. Flujo de Creacion de Pedido</h2>
+    <div class="diagram-container">
+        <div class="mermaid">
+sequenceDiagram
+    participant C as Cliente Web
+    participant GW as API Gateway
+    participant O as Order Service
+    participant CAT as Catalog Service
+    participant PAY as Payment Service
+    participant NOT as Notification Service
+    participant DB as Order Database
+    
+    C->>GW: POST /api/orders
+    GW->>O: CreateOrder Request
+    
+    O->>CAT: Validar productos y stock
+    CAT-->>O: Stock disponible
+    
+    O->>DB: Crear orden (Status: Pending)
+    DB-->>O: OrderId generado
+    
+    O->>PAY: Procesar pago (MercadoPago)
+    PAY-->>O: Pago aprobado
+    
+    O->>DB: Actualizar status (Paid)
+    O->>CAT: Reducir stock
+    
+    O->>NOT: Enviar confirmacion
+    NOT-->>C: Email de confirmacion
+    
+    O-->>GW: Order Created
+    GW-->>C: OrderId + Status
+        </div>
+        <p class="diagram-title">Flujo completo de creacion de pedido con validacion de stock, pago y notificacion</p>
+    </div>
+
+    <!-- Diagram 4: CQRS Pattern -->
+    <h2>4. Patron CQRS con MediatR</h2>
+    <div class="diagram-container">
+        <div class="mermaid">
+graph TB
+    subgraph "Command Side - Escritura"
+        API1["API Controller"]
+        CMD["Command<br/>(CreateProductCommand)"]
+        HAND["Command Handler<br/>(MediatR)"]
+        DB1[("Database<br/>Write")]
+    end
+    
+    subgraph "Query Side - Lectura"
+        API2["API Controller"]
+        QRY["Query Service<br/>(ProductQueryService)"]
+        CACHE["Redis Cache"]
+        DB2[("Database<br/>Read")]
+    end
+    
+    API1 -->|"Send Command"| CMD
+    CMD -->|"Handle"| HAND
+    HAND -->|"Insert/Update"| DB1
+    
+    API2 -->|"Get Products"| QRY
+    QRY -->|"Check Cache"| CACHE
+    CACHE -->|"Miss"| DB2
+    DB2 -->|"Data"| CACHE
+    CACHE -->|"Return"| QRY
+    
+    style CMD fill:#ef4444,color:#fff
+    style HAND fill:#ef4444,color:#fff
+    style QRY fill:#10b981,color:#fff
+    style CACHE fill:#f59e0b,color:#000
+        </div>
+        <p class="diagram-title">Separacion de comandos (escritura) y consultas (lectura) con cache Redis</p>
+    </div>
+
+    <!-- Diagram 5: API Gateway -->
+    <h2>5. API Gateway y Autenticacion JWT</h2>
+    <div class="diagram-container">
+        <div class="mermaid">
+graph TB
+    subgraph "Clients"
+        WEB["Web App"]
+        MOB["Mobile App"]
+    end
+    
+    subgraph "Security Layer"
+        JWT["JWT Validation"]
+        RATE["Rate Limiting"]
+        CORS["CORS Policy"]
+    end
+    
+    subgraph "API Gateway :45000"
+        GW["Ocelot Gateway"]
+        ROUTE["Route Configuration"]
+        LB["Load Balancing"]
+    end
+    
+    subgraph "Backend Services"
+        S1["Identity :10000"]
+        S2["Catalog :20000"]
+        S3["Customer :30000"]
+        S4["Order :40000"]
+        S5["Payment :50000"]
+    end
+    
+    WEB --> JWT
+    MOB --> JWT
+    JWT --> RATE
+    RATE --> CORS
+    CORS --> GW
+    GW --> ROUTE
+    ROUTE --> LB
+    LB --> S1
+    LB --> S2
+    LB --> S3
+    LB --> S4
+    LB --> S5
+    
+    style GW fill:#f59e0b,color:#000
+    style JWT fill:#8b5cf6,color:#fff
+    style RATE fill:#ef4444,color:#fff
+        </div>
+        <p class="diagram-title">Gateway centralizado con autenticacion JWT, rate limiting y balanceo de carga</p>
+    </div>
+
+    <!-- Diagram 6: Database Schema -->
+    <h2>6. Esquema de Base de Datos por Microservicio</h2>
+    <div class="diagram-container">
+        <div class="mermaid">
+erDiagram
+    USERS ||--o{ ORDERS : places
+    USERS {
+        guid UserId PK
+        string Email
+        string PasswordHash
+        string FirstName
+        string LastName
+        bool TwoFactorEnabled
+    }
+    
+    PRODUCTS ||--o{ ORDER_DETAILS : contains
+    PRODUCTS ||--|| STOCK : has
+    PRODUCTS {
+        int ProductId PK
+        string Name
+        string Description
+        decimal Price
+        decimal DiscountPrice
+        int CategoryId FK
+        int BrandId FK
+    }
+    
+    STOCK {
+        int StockId PK
+        int ProductId FK
+        int Quantity
+        datetime LastUpdated
+    }
+    
+    ORDERS ||--|{ ORDER_DETAILS : contains
+    ORDERS {
+        int OrderId PK
+        guid UserId FK
+        datetime CreatedAt
+        string Status
+        decimal Total
+        int PaymentId FK
+    }
+    
+    ORDER_DETAILS {
+        int DetailId PK
+        int OrderId FK
+        int ProductId FK
+        int Quantity
+        decimal UnitPrice
+    }
+        </div>
+        <p class="diagram-title">Modelo de datos simplificado mostrando relaciones entre entidades principales</p>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#3b82f6',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#60a5fa',
+                lineColor: '#64748b',
+                secondaryColor: '#1e293b',
+                tertiaryColor: '#0f172a',
+                background: '#1e293b',
+                mainBkg: '#1e293b',
+                secondBkg: '#334155',
+                border1: '#475569',
+                border2: '#334155',
+                arrowheadColor: '#94a3b8',
+                fontFamily: 'Segoe UI, sans-serif',
+                fontSize: '14px',
+                textColor: '#e2e8f0',
+                nodeTextColor: '#fff'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            sequence: {
+                useMaxWidth: true,
+                actorMargin: 80,
+                messageMargin: 40
+            }
+        });
+    </script>
+</body>
+</html>

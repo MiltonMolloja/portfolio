@@ -6,6 +6,7 @@ import {
   Project, 
   Experience, 
   SkillCategory,
+  DetailedSkill,
   Testimonial 
 } from '../models/portfolio.models';
 
@@ -63,6 +64,10 @@ export class PortfolioService {
 
   getComplementarySkills(): string[] {
     return this.data.complementarySkills;
+  }
+
+  getDetailedSkills(): DetailedSkill[] {
+    return this.data.detailedSkills;
   }
 
   getProjects(): Project[] {
