@@ -17,13 +17,13 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
   ],
   template: `
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center bg-slate-900 py-20">
+    <section class="min-h-screen flex items-center bg-gray-50 dark:bg-slate-900 py-20">
       <div class="container-custom">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <!-- Left: Content -->
           <div>
             <!-- Greeting -->
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4">
               Hola soy
               <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent">{{ profile.name.split(' ')[0] }} {{ profile.name.split(' ')[2] }}</span>
             </h1>
@@ -39,7 +39,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
             </p> -->
 
             <!-- Tagline -->
-            <p class="text-gray-400 mb-8 max-w-xl leading-relaxed">
+            <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-xl leading-relaxed">
               {{ profile.tagline }}
             </p>
 
@@ -85,7 +85,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 [href]="profile.github"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="p-2 rounded-lg text-gray-500 hover:text-white hover:bg-slate-800 transition-colors"
+                class="p-2 rounded-lg text-gray-600 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-slate-800 transition-colors"
                 aria-label="GitHub"
               >
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -96,7 +96,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 [href]="profile.linkedin"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="p-2 rounded-lg text-gray-500 hover:text-white hover:bg-slate-800 transition-colors"
+                class="p-2 rounded-lg text-gray-600 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-slate-800 transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -105,7 +105,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
               </a>
               <a
                 [href]="'mailto:' + profile.email"
-                class="p-2 rounded-lg text-gray-500 hover:text-white hover:bg-slate-800 transition-colors"
+                class="p-2 rounded-lg text-gray-600 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-slate-800 transition-colors"
                 aria-label="Email"
               >
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,8 +138,8 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center gap-1.5">
                   <span class="text-base">🏆</span>
                   <div>
-                    <p class="text-[10px] text-gray-400 leading-tight">Full Stack Senior</p>
-                    <p class="text-xs font-bold text-white leading-tight">6+ años exp.</p>
+                    <p class="text-[10px] text-gray-600 dark:text-gray-400 leading-tight">Full Stack Senior</p>
+                    <p class="text-xs font-bold text-gray-900 dark:text-white leading-tight">6+ años exp.</p>
                   </div>
                 </div>
               </div>
@@ -149,8 +149,8 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                 <div class="flex items-center gap-1.5">
                   <span class="text-base">⭐</span>
                   <div>
-                    <p class="text-[10px] text-gray-400 leading-tight">Sector</p>
-                    <p class="text-xs font-bold text-white leading-tight">Bancario</p>
+                    <p class="text-[10px] text-gray-600 dark:text-gray-400 leading-tight">Sector</p>
+                    <p class="text-xs font-bold text-gray-900 dark:text-white leading-tight">Bancario</p>
                   </div>
                 </div>
               </div>
@@ -159,9 +159,9 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 gap-4 w-full max-w-xs">
               @for (stat of stats; track stat.label) {
-                <div class="bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700/50 hover:border-slate-600 transition-all">
-                  <p class="text-2xl md:text-3xl font-bold text-white">{{ stat.value }}</p>
-                  <p class="text-sm text-gray-400">{{ stat.label }}</p>
+                <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center border border-gray-200 dark:border-slate-700/50 hover:border-gray-300 dark:hover:border-slate-600 transition-all shadow-sm">
+                  <p class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">{{ stat.value }}</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">{{ stat.label }}</p>
                 </div>
               }
             </div>
@@ -171,14 +171,14 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
     </section>
 
     <!-- Featured Projects Section -->
-    <section class="py-20 bg-slate-900">
+    <section class="py-20 bg-white dark:bg-slate-900">
       <div class="container-custom">
         <!-- Section Header -->
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-            Proyectos Destacados
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <span class="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">Proyectos Destacados</span>
           </h2>
-          <p class="text-gray-400 max-w-2xl mx-auto">
+          <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Una selección de mi trabajo reciente mostrando experiencia en desarrollo full-stack,
             arquitectura de microservicios y sistemas enterprise.
           </p>
@@ -193,7 +193,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
 
         <!-- View All Link -->
         <div class="text-center">
-          <a routerLink="/projects" class="inline-flex items-center px-6 py-3 rounded-lg font-medium bg-slate-800 text-gray-300 hover:bg-slate-700 hover:text-white border border-slate-700 transition-all">
+          <a routerLink="/projects" class="inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-white border border-gray-300 dark:border-slate-700 transition-all">
             Ver Todos los Proyectos
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -204,13 +204,13 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
     </section>
 
     <!-- Skills Preview Section -->
-    <section class="py-20 bg-[#0f172a]">
+    <section class="py-20 bg-gray-50 dark:bg-[#0f172a]">
       <div class="container-custom">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-            Habilidades y Tecnologías
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Habilidades Principales</span>
           </h2>
-          <p class="text-gray-400 max-w-2xl mx-auto">
+          <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Tecnologías principales y experiencia en desarrollo full-stack, bases de datos y herramientas modernas.
           </p>
         </div>
@@ -236,7 +236,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
-                <div class="h-1.5 bg-[#0f172a] rounded-full overflow-hidden">
+                <div class="h-1.5 bg-gray-200 dark:bg-[#0f172a] rounded-full overflow-hidden">
                   <div class="h-full rounded-full bg-purple-500" style="width: 100%"></div>
                 </div>
               </div>
@@ -248,7 +248,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
-                <div class="h-1.5 bg-[#0f172a] rounded-full overflow-hidden">
+                <div class="h-1.5 bg-gray-200 dark:bg-[#0f172a] rounded-full overflow-hidden">
                   <div class="h-full rounded-full bg-blue-500" style="width: 100%"></div>
                 </div>
               </div>
@@ -260,7 +260,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
-                <div class="h-1.5 bg-[#0f172a] rounded-full overflow-hidden">
+                <div class="h-1.5 bg-gray-200 dark:bg-[#0f172a] rounded-full overflow-hidden">
                   <div class="h-full rounded-full bg-yellow-500" style="width: 100%"></div>
                 </div>
               </div>
@@ -285,7 +285,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
-                <div class="h-1.5 bg-[#0f172a] rounded-full overflow-hidden">
+                <div class="h-1.5 bg-gray-200 dark:bg-[#0f172a] rounded-full overflow-hidden">
                   <div class="h-full rounded-full bg-orange-500" style="width: 100%"></div>
                 </div>
               </div>
@@ -297,7 +297,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
-                <div class="h-1.5 bg-[#0f172a] rounded-full overflow-hidden">
+                <div class="h-1.5 bg-gray-200 dark:bg-[#0f172a] rounded-full overflow-hidden">
                   <div class="h-full rounded-full bg-orange-500" style="width: 100%"></div>
                 </div>
               </div>
@@ -309,7 +309,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
-                <div class="h-1.5 bg-[#0f172a] rounded-full overflow-hidden">
+                <div class="h-1.5 bg-gray-200 dark:bg-[#0f172a] rounded-full overflow-hidden">
                   <div class="h-full rounded-full bg-orange-500" style="width: 100%"></div>
                 </div>
               </div>
@@ -331,7 +331,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   </div>
                   <span class="text-gray-500 text-xs">6 años</span>
                 </div>
-                <div class="h-1.5 bg-[#0f172a] rounded-full overflow-hidden">
+                <div class="h-1.5 bg-gray-200 dark:bg-[#0f172a] rounded-full overflow-hidden">
                   <div class="h-full rounded-full bg-green-500" style="width: 100%"></div>
                 </div>
               </div>
@@ -343,7 +343,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   </div>
                   <span class="text-gray-500 text-xs">2 años</span>
                 </div>
-                <div class="h-1.5 bg-[#0f172a] rounded-full overflow-hidden">
+                <div class="h-1.5 bg-gray-200 dark:bg-[#0f172a] rounded-full overflow-hidden">
                   <div class="h-full rounded-full bg-green-500" style="width: 33%"></div>
                 </div>
               </div>
@@ -368,7 +368,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   </div>
                   <span class="text-gray-500 text-xs">2 años</span>
                 </div>
-                <div class="h-1.5 bg-[#0f172a] rounded-full overflow-hidden">
+                <div class="h-1.5 bg-gray-200 dark:bg-[#0f172a] rounded-full overflow-hidden">
                   <div class="h-full rounded-full bg-red-500" style="width: 33%"></div>
                 </div>
               </div>
@@ -380,7 +380,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   </div>
                   <span class="text-gray-500 text-xs">3 años</span>
                 </div>
-                <div class="h-1.5 bg-[#0f172a] rounded-full overflow-hidden">
+                <div class="h-1.5 bg-gray-200 dark:bg-[#0f172a] rounded-full overflow-hidden">
                   <div class="h-full rounded-full bg-red-500" style="width: 50%"></div>
                 </div>
               </div>
@@ -392,7 +392,7 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   </div>
                   <span class="text-gray-500 text-xs">3 años</span>
                 </div>
-                <div class="h-1.5 bg-[#0f172a] rounded-full overflow-hidden">
+                <div class="h-1.5 bg-gray-200 dark:bg-[#0f172a] rounded-full overflow-hidden">
                   <div class="h-full rounded-full bg-red-500" style="width: 50%"></div>
                 </div>
               </div>
