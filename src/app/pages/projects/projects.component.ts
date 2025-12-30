@@ -10,14 +10,14 @@ import { PortfolioService } from '../../core/services/portfolio.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, RouterLink, FormsModule],
   template: `
-    <section class="min-h-screen bg-[#0a0f1a] py-20">
+    <section class="min-h-screen bg-gray-50 dark:bg-[#0a0f1a] py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="text-center mb-12">
           <h1 class="text-5xl md:text-6xl font-bold mb-4">
             <span class="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">Todos los Proyectos</span>
           </h1>
-          <p class="text-gray-400 max-w-2xl mx-auto">
+          <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Explora mi portafolio de {{ allProjects.length }} proyectos en desarrollo full-stack, 
             microservicios y arquitectura cloud
           </p>
@@ -35,7 +35,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
               type="text" 
               [ngModel]="searchQuery()"
               (ngModelChange)="searchQuery.set($event)"
-              class="w-full pl-12 pr-4 py-3 bg-[#0d1424] border border-slate-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
+              class="w-full pl-12 pr-4 py-3 bg-white dark:bg-[#0d1424] border border-gray-200 dark:border-slate-700 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
               placeholder="Buscar proyectos, tecnologías..."
             />
           </div>
@@ -45,7 +45,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             <select 
               [ngModel]="sortOrder()"
               (ngModelChange)="sortOrder.set($event)"
-              class="appearance-none bg-[#0d1424] border border-slate-700 rounded-xl px-4 py-3 pr-10 text-white focus:outline-none focus:border-purple-500 cursor-pointer"
+              class="appearance-none bg-white dark:bg-[#0d1424] border border-gray-200 dark:border-slate-700 rounded-xl px-4 py-3 pr-10 text-gray-900 dark:text-white focus:outline-none focus:border-purple-500 cursor-pointer"
             >
               <option value="newest">Más Recientes</option>
               <option value="oldest">Más Antiguos</option>
@@ -59,7 +59,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
           <!-- Filters Button -->
           <button 
             (click)="showFilters.set(!showFilters())"
-            class="flex items-center gap-2 bg-[#0d1424] border border-slate-700 rounded-xl px-4 py-3 text-white hover:border-purple-500 transition-colors"
+            class="flex items-center gap-2 bg-white dark:bg-[#0d1424] border border-gray-200 dark:border-slate-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white hover:border-purple-500 transition-colors"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
@@ -70,10 +70,10 @@ import { PortfolioService } from '../../core/services/portfolio.service';
 
         <!-- Filter Tags -->
         @if (showFilters()) {
-          <div class="flex flex-wrap gap-2 mb-6 p-4 bg-[#0d1424] rounded-xl border border-slate-700">
+          <div class="flex flex-wrap gap-2 mb-6 p-4 bg-white dark:bg-[#0d1424] rounded-xl border border-gray-200 dark:border-slate-700">
             <button 
               (click)="selectedCategory.set('all')"
-              [class]="selectedCategory() === 'all' ? 'bg-purple-600 text-white' : 'bg-slate-800 text-gray-300 hover:bg-slate-700'"
+                [class]="selectedCategory() === 'all' ? 'bg-purple-600 text-white' : 'bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700'"
               class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
             >
               Todos
@@ -81,7 +81,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             @for (cat of categories; track cat) {
               <button 
                 (click)="selectedCategory.set(cat)"
-                [class]="selectedCategory() === cat ? 'bg-purple-600 text-white' : 'bg-slate-800 text-gray-300 hover:bg-slate-700'"
+                [class]="selectedCategory() === cat ? 'bg-purple-600 text-white' : 'bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700'"
                 class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
               >
                 {{ cat }}
@@ -91,15 +91,15 @@ import { PortfolioService } from '../../core/services/portfolio.service';
         }
 
         <!-- Results count -->
-        <p class="text-sm text-gray-500 mb-6">Mostrando {{ filteredProjects().length }} de {{ allProjects.length }} proyectos</p>
+        <p class="text-sm text-gray-600 dark:text-gray-500 mb-6">Mostrando {{ filteredProjects().length }} de {{ allProjects.length }} proyectos</p>
 
         <!-- Projects Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           @for (project of filteredProjects(); track project.id) {
-            <article class="bg-[#0d1424] rounded-2xl border border-slate-700/50 overflow-hidden hover:border-purple-500/50 transition-all duration-300 flex flex-col group">
+            <article class="bg-white dark:bg-[#0d1424] rounded-2xl border border-gray-200 dark:border-slate-700/50 overflow-hidden hover:border-purple-500/50 transition-all duration-300 flex flex-col group">
               <!-- Project Image -->
               <a [routerLink]="['/projects', project.id]" class="block relative overflow-hidden">
-                <div class="aspect-video bg-slate-800 overflow-hidden">
+                <div class="aspect-video bg-gray-100 dark:bg-slate-800 overflow-hidden">
                   <img 
                     [src]="project.images[0]" 
                     [alt]="project.title"
@@ -128,11 +128,11 @@ import { PortfolioService } from '../../core/services/portfolio.service';
               <div class="p-5 pb-4 flex-1">
                 <!-- Title -->
                 <a [routerLink]="['/projects', project.id]" class="block mb-2">
-                  <h3 class="text-lg font-bold text-white leading-tight group-hover:text-purple-400 transition-colors">{{ project.title }}</h3>
+                  <h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight group-hover:text-purple-400 transition-colors">{{ project.title }}</h3>
                 </a>
                 
                 <!-- Description -->
-                <p class="text-gray-400 text-sm leading-relaxed line-clamp-2 mb-4">
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-2 mb-4">
                   {{ project.shortDescription }}
                 </p>
 
@@ -156,12 +156,12 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                 <!-- Tech Stack -->
                 <div class="flex flex-wrap gap-1.5">
                   @for (tech of project.techStack.slice(0, 3); track tech) {
-                    <span class="px-2 py-0.5 bg-slate-800/80 text-gray-400 text-xs rounded border border-slate-700">
+                    <span class="px-2 py-0.5 bg-gray-100 dark:bg-slate-800/80 text-gray-600 dark:text-gray-400 text-xs rounded border border-gray-200 dark:border-slate-700">
                       {{ tech }}
                     </span>
                   }
                   @if (project.techStack.length > 3) {
-                    <span class="px-2 py-0.5 bg-slate-800/80 text-gray-500 text-xs rounded border border-slate-700">
+                    <span class="px-2 py-0.5 bg-gray-100 dark:bg-slate-800/80 text-gray-600 dark:text-gray-500 text-xs rounded border border-gray-200 dark:border-slate-700">
                       +{{ project.techStack.length - 3 }}
                     </span>
                   }
@@ -170,12 +170,12 @@ import { PortfolioService } from '../../core/services/portfolio.service';
 
               <!-- Metrics Section -->
               @if (project.metrics && project.metrics.length > 0) {
-                <div class="px-5 py-3 border-t border-slate-700/50 bg-slate-800/30">
+                <div class="px-5 py-3 border-t border-gray-200 dark:border-slate-700/50 bg-gray-100 dark:bg-slate-800/30">
                   <div class="flex flex-wrap gap-x-4 gap-y-1">
                     @for (metric of project.metrics.slice(0, 3); track metric.label) {
                       <div class="flex items-center gap-1.5">
                         <span class="text-purple-400 font-bold text-sm">{{ metric.value }}</span>
-                        <span class="text-gray-500 text-xs">{{ metric.label }}</span>
+                        <span class="text-gray-600 dark:text-gray-500 text-xs">{{ metric.label }}</span>
                       </div>
                     }
                   </div>
@@ -183,7 +183,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
               }
 
               <!-- Actions -->
-              <div class="px-5 py-3 border-t border-slate-700/50 flex items-center justify-between">
+              <div class="px-5 py-3 border-t border-gray-200 dark:border-slate-700/50 flex items-center justify-between">
                 <a 
                   [routerLink]="['/projects', project.id]"
                   class="text-purple-400 hover:text-purple-300 text-sm font-medium flex items-center gap-1 transition-colors"
@@ -199,7 +199,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                       [href]="project.githubUrl" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      class="text-gray-500 hover:text-white transition-colors"
+                      class="text-gray-600 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
                       aria-label="GitHub"
                     >
                       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -212,7 +212,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                       [href]="project.demoUrl" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      class="text-gray-500 hover:text-white transition-colors"
+                      class="text-gray-600 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
                       aria-label="Demo"
                     >
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -232,8 +232,8 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             <svg class="w-16 h-16 mx-auto text-gray-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            <h3 class="text-xl font-semibold text-white mb-2">No se encontraron proyectos</h3>
-            <p class="text-gray-400">Intenta con otros términos de búsqueda o filtros</p>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">No se encontraron proyectos</h3>
+            <p class="text-gray-600 dark:text-gray-400">Intenta con otros términos de búsqueda o filtros</p>
           </div>
         }
       </div>
