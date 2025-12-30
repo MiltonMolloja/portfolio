@@ -483,6 +483,9 @@ export class ProjectDetailComponent implements OnInit {
   categoryVisibleCounts: Record<number, number> = {};
 
   ngOnInit(): void {
+    // Scroll to top when component loads
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       const proj = this.portfolioService.getProjectById(id);
