@@ -311,7 +311,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
         }
       ],
       demoUrl: 'https://miecommerce.duckdns.org/auth/',
-      githubUrl: 'https://github.com/MiltonMolloja',
+      githubUrl: 'https://github.com/MiltonMolloja/ClientsAuthenticationFrontend',
       highlights: [
         'Autenticación JWT con access token (15min) y refresh token (7 días) con renovación automática transparente',
         'Two-Factor Authentication (2FA) con TOTP: QR Code para apps de autenticación + códigos de respaldo descargables',
