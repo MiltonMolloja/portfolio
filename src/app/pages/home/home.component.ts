@@ -74,6 +74,19 @@ import { TypewriterComponent } from '../../shared/components/typewriter/typewrit
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
               </a>
+              <a 
+                href="https://miecommerce.duckdns.org/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gradient-to-r from-emerald-600 to-green-500 text-white hover:from-emerald-500 hover:to-green-400 transition-all shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-105">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                E-Commerce Live
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              </a>
               <a routerLink="/contact" class="inline-flex items-center px-6 py-3 rounded-lg font-medium border-2 border-pink-500 text-pink-400 hover:bg-pink-500/10 transition-all">
                 Contacto
               </a>
