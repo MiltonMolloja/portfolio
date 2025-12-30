@@ -822,7 +822,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       name: 'Foundational C# with Microsoft',
       issuer: 'freeCodeCamp',
       date: 'Febrero 2025',
-      url: 'https://www.freecodecamp.org/certification/MiltonMolloja/foundational-c-sharp-with-microsoft'
+      url: 'https://www.freecodecamp.org/certification/miltonmolloja/foundational-c-sharp-with-microsoft'
     }
   ],
 
