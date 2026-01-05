@@ -53,7 +53,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                   <!-- Header -->
                   <div class="p-6 border-b border-gray-200 dark:border-slate-700/50">
                     <!-- Date Badge -->
-                    <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-50 dark:bg-gradient-to-r dark:from-blue-500/20 dark:to-purple-500/20 text-purple-700 dark:text-blue-300 border border-purple-200 dark:border-blue-500/30 mb-3">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-50 dark:bg-gradient-to-r dark:from-blue-500/20 dark:to-purple-500/20 text-purple-700 dark:text-white border border-purple-200 dark:border-blue-500/30 mb-3">
                       <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                       </svg>
