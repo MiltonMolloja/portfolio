@@ -108,17 +108,46 @@ import { Project } from '../../../core/models/portfolio.models';
             </a>
           }
           @if (project.demoUrl) {
-            <a 
-              [href]="project.demoUrl" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="p-1.5 rounded text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
-              aria-label="Live Demo"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </a>
+            @if (project.id === 'ecommerce-platform') {
+              <!-- E-Commerce: Two icons (Prod & Dev) -->
+              <a 
+                [href]="project.demoUrl" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="p-1.5 rounded text-emerald-500 hover:text-emerald-400 transition-colors"
+                aria-label="Production"
+                title="Producción"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                </svg>
+              </a>
+              <a 
+                href="https://miecommerce-dev.duckdns.org/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="p-1.5 rounded text-orange-500 hover:text-orange-400 transition-colors"
+                aria-label="Development"
+                title="Desarrollo"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+              </a>
+            } @else {
+              <!-- Other projects: Single icon -->
+              <a 
+                [href]="project.demoUrl" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="p-1.5 rounded text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+                aria-label="Live Demo"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              </a>
+            }
           }
         </div>
       </div>
